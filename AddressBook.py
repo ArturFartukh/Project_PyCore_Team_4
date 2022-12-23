@@ -16,7 +16,7 @@ class AddressBook(UserDict):
     book_name = None
 
     def add_record(self, record):
-        self.data[str(record.contact)] = record
+        self.data[str(record.name)] = record
 
     def del_record(self, name):
         del self.data[name]

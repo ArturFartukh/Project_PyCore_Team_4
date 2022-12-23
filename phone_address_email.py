@@ -1,3 +1,4 @@
+import Field
 import re
 
 
@@ -31,13 +32,3 @@ class Email(Field):
         if not email:
             raise ValueError('Invalid Email')
         self._value = email
-
-
-
-
-
-
-
-
-
-

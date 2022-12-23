@@ -1,6 +1,7 @@
 from collections import UserDict
 import Record
 
+
 class AddressBook(UserDict):
     def __setitem__(self, key, value):
         if key:
@@ -28,7 +29,7 @@ class AddressBook(UserDict):
         if name in self.data:
             contact = self.data[name]
             phones = contact.get_all_phones()
-            return  f'\n[{name}]:{phones}\n' 
+            return f'\n[{name}]:{phones}\n' 
         else:
             return 'Such contact does not exist. Try again!'
     

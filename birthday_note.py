@@ -18,7 +18,7 @@ class Birthday(Field):
 
 class Note(Field):
 
-    def __init__(self, value):
+    def __init__(self, value:str):
         super().__init__(value)
         self.__tags = None
 

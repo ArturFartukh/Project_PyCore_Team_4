@@ -22,7 +22,7 @@ class Record:
 
     def add_phone(self, new_phone: str):
         """Adds a phone number"""
-        if len(self.phones) == 1 and self.phones[0] == 'There are no phone numbers.'
+        if len(self.phones) == 1 and self.phones[0] == 'There are no phone numbers.':
             self.phones[0] = Phone(new_phone)
         else:
             self.phones.append(Phone(new_phone))

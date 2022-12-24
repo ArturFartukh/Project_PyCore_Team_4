@@ -1,4 +1,4 @@
-import Record, AddressBook
+from split_data import *
 
 
 def add_email(data: str):

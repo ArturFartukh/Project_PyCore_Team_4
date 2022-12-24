@@ -1,9 +1,10 @@
 import phone_validator
-import split_data
+from split_data import *
 from BookClasses import Record
 
+
 def change_phone_func(data: str):
-    '''Changing an existing contact number'''
+    """Changing an existing contact number"""
     name, phone_old = split_data(data)
 
     if name in book.data.keys():

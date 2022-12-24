@@ -1,6 +1,6 @@
 from datetime import datetime
 
-def add_birthday(data: str) -> str:
+def add_birthday(data: str):
     name, birth_date = split_data(data)
     if name in book.data.keys():
         contact = book.data[name]

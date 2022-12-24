@@ -15,7 +15,7 @@ def del_func(data: str):
             return f'\nNumber [{phone}] has been deleted from [{name}]\n'
         else:
             return '\nContinue\n'
-    elif phone == '':
+    elif not phone:
         confirmation = input(f'Do you want to delete contact {name} completely? Y/N: ')
         if confirmation.lower() in ('y', 'yes'):
             book.del_record(name)

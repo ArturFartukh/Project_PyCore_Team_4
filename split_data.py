@@ -10,4 +10,3 @@ def split_data(data: str) -> tuple:
     if 10 <= len(information) <= 13 and information[1:].isdigit():
         information = phone_validator(information)
     return name, information
-

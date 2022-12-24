@@ -1,4 +1,5 @@
 from split_data import split_data
+from main import book
 
 
 def change_email(data: str) -> str:

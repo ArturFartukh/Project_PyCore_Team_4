@@ -12,7 +12,7 @@ def change_email(data: str) -> str:
         return f'Email: {email_new} has been added to contact: {name}'
     else:
         user_command = input(f'{name} already has an email. Do you want change {record.email} to {email_new}?:\n').strip().lower()
-        if user_command == 'yes' or user_command == 'y':
+        if user_command in ('yes', 'y'):
             record.add_email(email_new)
             return f'\nThe contact email has been changed to {email_new}\n'
         else:

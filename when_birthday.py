@@ -1,3 +1,6 @@
+from main import *
+
+
 def days_before_birthday(data: str):
     name = data.strip().title()
     if name not in book:

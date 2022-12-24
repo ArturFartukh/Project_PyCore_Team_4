@@ -1,3 +1,4 @@
+from main import *
 from split_data import *
 
 

@@ -1,5 +1,6 @@
 from datetime import date, datetime
 import re
+import Field
 
 
 class Birthday(Field):
@@ -18,7 +19,7 @@ class Birthday(Field):
 
 class Note(Field):
 
-    def __init__(self, value:str):
+    def __init__(self, value: str):
         super().__init__(value)
         self.__tags = None
 
@@ -28,5 +29,14 @@ class Note(Field):
 
     @tags.setter
     def tags(self, tags: str):
-        new_tags = tags.split(', ')
+        new_tags = []
+        tag = ''
+        for element in tags:
+            if element.isalpha() or element.isnumeric():
+                tag += element
+            elif not element.isalpha() and not element.isnumeric() and tag:
+                new_tags.append(tag)
+                tag = ''
+            elif not element.isalpha() and not element.isnumeric() and not tag:
+                continue
         self.__tags = new_tags

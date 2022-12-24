@@ -20,8 +20,7 @@ def add_func(data: str):
     if contact.phone_in_contact(phone):
         return f'This phone number already exists!'
     elif not contact.phone_in_contact(phone) and phone:
-        for phone_number in contact.get_all_phones():
-            contact.add_phone(phone_number)
-            return f'\nNumber [{phone}] has been added to contact: [{name}]\n'
+        contact.add_phone(phone)
+        return f'\nNumber [{phone}] has been added to contact: [{name}]\n'
     else:
         return '\nThis contact already exists!\n'    

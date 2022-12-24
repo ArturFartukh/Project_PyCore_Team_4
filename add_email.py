@@ -2,7 +2,7 @@ from Project_PyCore_Team_4 import Record, AddressBook
 
 
 def add_email(data: str):
-    name, email = data.strip().split(' ')
+    name, email = split_data(data)
     if name not in book:
         raise ValueError('This user not in contact book')
     record = Record(name)

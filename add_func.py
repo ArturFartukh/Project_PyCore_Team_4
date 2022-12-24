@@ -21,8 +21,6 @@ def add_func(data: str):
         return f'This phone number already exists!'
     elif not contact.phone_in_contact(phone) and phone:
         for phone_number in contact.get_all_phones():
-            if phone_number == 'There are no phone numbers.':
-                contact.del_phone(phone_number)
             contact.add_phone(phone_number)
             return f'\nNumber [{phone}] has been added to contact: [{name}]\n'
     else:

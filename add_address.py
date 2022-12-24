@@ -8,4 +8,4 @@ def add_address(data: str):
         raise ValueError('This contact already exist address')
     record = book[name]
     record.add_address(address)
-    return f'Address: [{address}] has been added to contact [{name}]'
+    return f'Address: {address} has been added to contact {name}'

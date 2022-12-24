@@ -1,4 +1,5 @@
 def phone_validator(phone: str) -> str:
+    """Analyzes and changes the phone number according to the template: '+123456789123'"""
     if len(phone) == 13 and phone[0] != '+' and not phone[1:].isdigit():
         raise ValueError('Wrong phone!')
     elif len(phone) == 10 and not phone.isdigit():

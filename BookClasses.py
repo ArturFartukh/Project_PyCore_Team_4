@@ -169,6 +169,33 @@ class Record:
         return False
 
 
+class Field:
+    def __init__(self, value):
+        self._value = None
+        self.value = value
+
+    @property
+    def value(self):
+        return self._value
+
+    @value.setter
+    def value(self, value):
+        self._value = value 
+
+    def __str__(self):
+        return f'{self._value}'
+
+
+class Name(Field):
+    @Field.value.setter
+    def value(self, value: str):
+        if not value.isalpha():
+            raise ValueError('Incorrect name!')
+        if value[0].isdigit():
+            raise ValueError('The name cannot start with a number!')
+        self._value = value
+
+
 class Phone(Field):
     """Make a regular expression for validating a Phone"""
     @Field.value.setter

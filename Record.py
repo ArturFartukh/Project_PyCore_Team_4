@@ -1,10 +1,7 @@
 from datetime import date
 import Name
-import Phone
-import Address
-import Email
-import Birthday
-import Note
+from phone_address_email import *
+from birthday_note import *
 
 
 class Record:

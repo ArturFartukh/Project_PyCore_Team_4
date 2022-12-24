@@ -68,10 +68,10 @@ class Record:
         bd_in_year = bd_in_year.replace(year=date.today().year)
         if bd_in_year > date.today():
             difference = bd_in_year - date.today()
-            return difference.days
+            return f'\n{self.name} birthday, after {difference.days} days.\n'
         elif bd_in_year < date.today():
             difference = bd_in_year.replace(year=date.today().year + 1) - date.today()
-            return difference.days
+            return f'\n{self.name} birthday, after {difference.days} days.\n'
         else:
             return f"Today is {self.name.value}'s birthday!"
 

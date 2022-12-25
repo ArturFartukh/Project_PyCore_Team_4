@@ -215,11 +215,13 @@ class Phone(Field):
     """Make a regular expression for validating a Phone"""
     @Field.value.setter
     def value(self, value):
-        pattern = r'\+\d{12}'
-        phone = re.findall(pattern, value)
-        if not phone:
-            raise ValueError('Phone must look like +123456789123')
-        self._value = phone
+        if value == 'There are no phone numbers.':
+            self._value = value
+        else:
+            pattern = r'\+\d{12}'
+            phone = re.findall(pattern, value)
+            if phone:
+                self._value = phone[0]
 
 
 class Address(Field):

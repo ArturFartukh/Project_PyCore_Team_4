@@ -9,7 +9,7 @@ from Functions.del_func import *
 # from Functions.add_birthday import *
 # from Functions.when_birthday import *
 # from Functions.add_note import *
-# from Functions.searsh_contact import *
+# from Functions.search_contact import *
 from Functions.all_numbers_func import *
 
 
@@ -142,7 +142,7 @@ OPERATIONS = {'info': info_funk,
               #'when birthday': days_before_birthday,
               #'add note': add_note,
               #'find note': search_in_notes,
-              #'find': searsh_contact,
+              #'find': search_contact,
               #'gfind': global_search,
               #'about': about,
               #'about all': about_all,

@@ -17,7 +17,7 @@ def search_in_notes(data: str) -> str:
             if note.value.lower().find(search.lower()) >= 0:
                 output_message += f'{index}. {note.value}\n'
         if not output_message:
-            return 'Couldn`t find anything'
+            return 'Could n`t find anything'
         else:
             return output_message
         

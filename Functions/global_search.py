@@ -1,7 +1,7 @@
 import pickle
 
 
-def global_searsh(data: str):
+def global_search(data: str):
     name = None
     phone = None
     result = []

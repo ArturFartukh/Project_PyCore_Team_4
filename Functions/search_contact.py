@@ -2,7 +2,7 @@ from main import book
 from phone_validator import *
 
 
-def searsh_contact(data: str) -> str:
+def search_contact(data: str) -> str:
 
     name = None
     phone = None
@@ -36,4 +36,3 @@ def searsh_contact(data: str) -> str:
             result += f'{contact_info[key]}'
         result += '\n'
     return result
-

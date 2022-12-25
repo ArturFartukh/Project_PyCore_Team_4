@@ -1,4 +1,4 @@
-from main import *
+from main import book
 from split_data import *
 
 

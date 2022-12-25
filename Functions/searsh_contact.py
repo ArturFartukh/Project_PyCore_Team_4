@@ -1,4 +1,4 @@
-from main import *
+from main import book
 
 
 def searsh_contact(data: str) -> str:

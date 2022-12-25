@@ -1,3 +1,7 @@
+from main import book
+from split_data import *
+
+
 def add_birthday(data: str):
     name, birth_date = split_data(data)
     if name in book.data.keys():

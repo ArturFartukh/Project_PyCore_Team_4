@@ -1,4 +1,4 @@
-from main import *
+from main import book
 import phone_validator
 from split_data import *
 

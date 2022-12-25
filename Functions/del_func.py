@@ -1,11 +1,11 @@
-import split_data
-from BookClasses import Record
+from main import book
+from split_data import *
 
 
 def del_func(data: str):
-    '''Deleting contact to the address book'''
+    """Deleting contact to the address book"""
     name, phone = split_data(data)
-    if not name in book.data.keys():
+    if name not in book.data.keys():
         return f'\nContact with name {name} not found!\n'
     contact = book.data[name]
     if contact.phone_in_contact(phone):

@@ -1,5 +1,5 @@
-from split_data import split_data
 from main import book
+from split_data import *
 
 
 def change_email(data: str) -> str:
@@ -11,7 +11,8 @@ def change_email(data: str) -> str:
         record.add_email(email_new)
         return f'Email: {email_new} has been added to contact: {name}'
     else:
-        user_command = input(f'{name} already has an email. Do you want change {record.email} to {email_new}?:\n').strip().lower()
+        user_command = input(f'{name} already has an email.\n'
+                             f'Do you want change {record.email} to {email_new}?: Y/N').strip().lower()
         if user_command in ('yes', 'y'):
             record.add_email(email_new)
             return f'\nThe contact email has been changed to {email_new}\n'

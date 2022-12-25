@@ -1,4 +1,5 @@
-from split_data import split_data
+from main import book
+from split_data import *
 
 
 def add_note(data: str) -> str:

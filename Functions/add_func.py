@@ -1,9 +1,10 @@
-import split_data
+from main import book
+from split_data import *
 from BookClasses import Record
 
 
 def add_func(data: str):
-    '''Adding contact to the address book'''
+    """Adding contact to the address book"""
     
     name, phone = split_data(data)
 
@@ -23,4 +24,4 @@ def add_func(data: str):
         contact.add_phone(phone)
         return f'\nNumber [{phone}] has been added to contact: [{name}]\n'
     else:
-        return '\nThis contact already exists!\n'    
+        return '\nThis contact already exists!\n'

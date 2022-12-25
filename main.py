@@ -1,5 +1,6 @@
 from BookClasses import AddressBook
 from work_with_files import new_book, save_book, load_book
+from Functions.add_func import *
 
 
 def main():

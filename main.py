@@ -24,7 +24,7 @@ def command_parser(input_command: str):
     for key in OPERATIONS:
         if input_command.startswith(key):
             command = key
-            data = input_command[len(new_input):]
+            data = input_command[len(command):]
             break
         if data:
             return func_call(command)(data)

@@ -1,6 +1,16 @@
 from BookClasses import AddressBook
 from work_with_files import new_book, save_book, load_book
+from Functions.hello_func import *
 from Functions.add_func import *
+from Functions.change_phone import *
+from Functions.del_func import *
+from Functions.add_address import *
+from Functions.add_email import *
+from Functions.change_email import *
+from Functions.add_birthday import *
+from Functions.when_birthday import *
+from Functions.add_note import *
+from Functions.searsh_contact import *
 
 
 def main():
@@ -43,20 +53,24 @@ def unknown_command():
     return 'Wrong input!'
 
 
-OPERATIONS = {'new book': new_book,
+OPERATIONS = {'info': info_funk,
+              'new book': new_book,
               'load book': load_book,
               'save book': save_book,
               'hello': hello_func,
               'hi': hello_func,
               'add': add_func,
-              'birthday': add_birthday,
-              'change': change_func,
-              'del': del_funk,
-              'info': info_funk,
-              'phone': search_func,
-              'find': the_searcher,
-              'show all': show_all,
-              'when birthday': when_birthday,
+              'change phone': change_phone_func,
+              'del': del_func,
+              'add address': add_address,
+              'add email': add_email,
+              'change email': change_email,
+              'add birthday': add_birthday,
+              'when birthday': days_before_birthday,
+              'add note': add_note,
+              'find': searsh_contact,
+              'glob find': global_search,
+              'show all': show_all
               }
 
 

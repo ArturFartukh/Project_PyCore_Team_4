@@ -90,7 +90,7 @@ def load(book) -> str:
 
     book_file = input('\nEnter book name: ')
     try:
-        with open(f'./Saved books/{book.book_name}.dat', 'rb') as fh:
+        with open(f'./Saved books/{book_file}.dat', 'rb') as fh:
             book = pickle.load(fh)
             return book, f'\nThe book [{book.book_name}] has been loaded.\n'
     except FileNotFoundError:

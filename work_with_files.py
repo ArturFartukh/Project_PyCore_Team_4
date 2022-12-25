@@ -55,7 +55,7 @@ def save_book() -> str:
                         old_book = pickle.load(fh)
                         book.merging_books(old_book)
                 except FileNotFoundError:
-                    raise 'File not found.\n'
+                    raise FileNotFoundError('File not found.\n')
                 with open(book.book_name + '.dat', 'wb') as fh:
                     pickle.dump(book, fh)
                 return 'The books were merged and saved.\n'
@@ -65,7 +65,7 @@ def save_book() -> str:
                         pickle.dump(book, fh)
                     return f'The book [{book.book_name}] was rewritten.\n'
                 except FileNotFoundError:
-                    raise 'File not found.\n'
+                    raise FileNotFoundError('File not found.\n')
             elif user_choice == '4':
                 return 'Cancel save...\n'
             else:

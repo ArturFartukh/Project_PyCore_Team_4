@@ -168,6 +168,21 @@ class Record:
                 return True
         return False
 
+    def get_all_info(self) -> dict:
+        """Returns a dictionary with all information about the contact"""
+        user_data = dict()
+        user_data['name'] = self.name.value
+        user_data['phone'] = self.get_all_phones()
+        if self.address:
+            user_data['address'] = self.address.value
+        if self.email:
+            user_data['email'] = self.email.value
+        if self.birthday:
+            user_data['birthday'] = self.birthday.value
+        if self.notes:
+            user_data['notes'] = [note.value for note in self.notes]
+        return user_data
+
 
 class Field:
     def __init__(self, value):

@@ -7,7 +7,7 @@ def run_skript(path) -> str:
     """Run skript"""
 
     home_path = Path(path)
-    
+
     paths_list = direct_processing(home_path)
 
     move_files_to_home_directory(home_path, paths_list)

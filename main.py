@@ -32,7 +32,7 @@ def command_parser(input_command: str):
 
 
 def func_call(command: str):
-    '''Calling a function dependштп on the entered command'''
+    '''Calling a function depending on the entered command'''
     
     return OPERATIONS.get(command, unknown_command)
 

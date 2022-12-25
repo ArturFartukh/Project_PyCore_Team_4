@@ -18,7 +18,7 @@ def command_parser(input_command: str):
     '''Processing the command entered by the user'''
     
     new_input = input_command.split()
-    new_input = [item.lower() for item in new_input if item not in ('', ' ')]
+    new_input = [item.lower().strip() for item in new_input if item not in ('', ' ')]
     input_command = ' '.join(new_input)
     data = ''
     for key in OPERATIONS:

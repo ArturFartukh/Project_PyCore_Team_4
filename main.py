@@ -1,16 +1,16 @@
 from BookClasses import AddressBook
-from work_with_files import new_book, save_book, load_book
-from Functions.hello_func import *
-from Functions.add_func import *
-from Functions.change_phone import *
-from Functions.del_func import *
-from Functions.add_address import *
-from Functions.add_email import *
-from Functions.change_email import *
-from Functions.add_birthday import *
-from Functions.when_birthday import *
-from Functions.add_note import *
-from Functions.searsh_contact import *
+from work_with_files import new, save, load
+# from Functions.hello_func import *
+# from Functions.add_func import *
+# from Functions.change_phone import *
+# from Functions.del_func import *
+# from Functions.add_address import *
+# from Functions.add_email import *
+# from Functions.change_email import *
+# from Functions.add_birthday import *
+# from Functions.when_birthday import *
+# from Functions.add_note import *
+# from Functions.searsh_contact import *
 
 
 def main():
@@ -33,6 +33,7 @@ def command_parser(input_command: str):
     new_input = [item.lower().strip() for item in new_input if item not in ('', ' ')]
     input_command = ' '.join(new_input)
     data = ''
+    command = ''
     for key in OPERATIONS:
         if input_command.startswith(key):
             command = key
@@ -53,29 +54,53 @@ def unknown_command():
     return 'Wrong input!'
 
 
-OPERATIONS = {'info': info_funk,
+def new_book():
+    global book
+    book, result = new()
+    return result
+
+
+def load_book():
+    global book
+    book, result = load(book)
+    return result
+
+
+def save_book():
+    global book
+    book, result = save(book)
+    return result
+
+
+OPERATIONS = {#'info': info_funk,
               'new book': new_book,
               'load book': load_book,
               'save book': save_book,
-              'hello': hello_func,
-              'hi': hello_func,
-              'add': add_func,
-              'change phone': change_phone_func,
-              'del': del_func,
-              'add address': add_address,
-              'add email': add_email,
-              'change email': change_email,
-              'add birthday': add_birthday,
-              'when birthday': days_before_birthday,
-              'add note': add_note,
-              'find': searsh_contact,
-              'glob find': global_search,
-              'show all': show_all
+              #'hello': hello_func,
+              #'hi': hello_func,
+              #'add': add_func,
+              #'change phone': change_phone_func,
+              #'del': del_func,
+              #'add address': add_address,
+              #'add email': add_email,
+              #'change email': change_email,
+              #'add birthday': add_birthday,
+              #'when birthday': days_before_birthday,
+              #'add note': add_note,
+              #'find': searsh_contact,
+              #'glob find': global_search,
+              #'show all': show_all
               }
 
-
-STOP_LIST = ('good bye', 'close', 'exit', '.')
-
+STOP_LIST = ('good bye',
+             'close',
+             'exit',
+             'bye',
+             'end',
+             'stop',
+             'break',
+             '.'
+             )
 
 if __name__ == '__main__':
 

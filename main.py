@@ -10,6 +10,7 @@ from Functions.tags_fгnc import *
 from Functions.search_contact_func import *
 from Functions.search_contact_global_func import *
 from Functions.contact_info_func import *
+from Functions.all_contact_info_func import *
 from Functions.all_numbers_func import *
 
 
@@ -207,9 +208,9 @@ def contact_info(name: str) -> str:
     return result
 
 
-def all_contact_info(name: str) -> str:
+def all_contact_info() -> str:
     global book
-    result = all_contact_info_func(book)
+    result = all_contact_info_func()
     return result
 
 
@@ -238,7 +239,7 @@ OPERATIONS = {'info': info_funk,
               'add note': add_note,
               'find note': search_in_notes,
               'add tags': add_tags,
-              'tag': search_to_teg, #!!!
+              'tag': search_to_teg,  # !!!
               'find': search_contact,
               'gfind': global_search,
               'about': contact_info,

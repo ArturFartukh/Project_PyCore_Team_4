@@ -1,15 +1,12 @@
 from BookClasses import AddressBook
 from work_with_files import new, save, load
-from Functions.add_func import *
-from Functions.change_phone import *
-from Functions.del_func import *
-# from Functions.add_address import *
-# from Functions.add_email import *
-# from Functions.change_email import *
-# from Functions.add_birthday import *
-# from Functions.when_birthday import *
+from Functions.contact_func import *
+from Functions.address_func import *
+from Functions.email_func import *
+from Functions.birthday_func import *
 # from Functions.add_note import *
 # from Functions.search_contact import *
+from Functions.all_contact_info import *
 from Functions.all_numbers_func import *
 
 
@@ -71,7 +68,7 @@ def info_funk() -> str:
            'when birthday - "when birthday Name" - remaining days until the birthday\n'\
            'add note - add note Note - add note to а contact\n'\
            'find note - find note string - find note in contact\n'\
-           'add tags - add tags Tag1 Tag2 ... - add tags to а contact\n'\
+           'add tags - add tags Name - add tags to а contact\n'\
            'find tag - find tag Tag - searches for a note by tag\n'\
            'find - find Name/Number - search for a contact by name/number\n'\
            'gfind - gfind Name/Number - find a contact by name/number in all saved books\n'\
@@ -120,6 +117,48 @@ def del_contact_or_number(data: str) -> str:
     return result
 
 
+def add_address(data: str) -> str:
+    global book
+    book, result = add_address_func(data, book)
+    return result
+
+
+def change_address(data: str) -> str:
+    global book
+    book, result = change_address_func(data, book)
+    return result
+
+
+def add_email(data: str) -> str:
+    global book
+    book, result = add_email_func(data, book)
+    return result
+
+
+def change_email(data: str) -> str:
+    global book
+    book, result = change_email_func(data, book)
+    return result
+
+
+def add_birthday(data: str) -> str:
+    global book
+    book, result = add_birthday_func(data, book)
+    return result
+
+
+def when_birthday(data: str) -> str:
+    global book
+    result = days_before_birthday_func(data, book)
+    return result
+
+
+def contact_info(name: str) -> str:
+    global book
+    result = all_contact_info(name, book)
+    return result
+
+
 def all_numbers() -> str:
     global book
     result = all_numbers_func(book)
@@ -132,19 +171,20 @@ OPERATIONS = {'info': info_funk,
               'save book': save_book,
               'hello': hello_func,
               'hi': hello_func,
-              'add': add_contact,
+              'add contact': add_contact,
               'change phone': change_phone,
               'del': del_contact_or_number,
-              #'add address': add_address,
-              #'add email': add_email,
-              #'change email': change_email,
-              #'add birthday': add_birthday,
-              #'when birthday': days_before_birthday,
+              'add address': add_address,
+              'change address': change_address,
+              'add email': add_email,
+              'change email': change_email,
+              'add birthday': add_birthday,
+              'when birthday': when_birthday,
               #'add note': add_note,
               #'find note': search_in_notes,
               #'find': search_contact,
               #'gfind': global_search,
-              #'about': about,
+              'about': contact_info,
               #'about all': about_all,
               'all numbers': all_numbers
               }

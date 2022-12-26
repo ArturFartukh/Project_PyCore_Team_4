@@ -103,7 +103,7 @@ class Record:
         """Returns the number of days until the birthday"""
         if not self.birthday:
             return f'Date of birth not specified.'
-        bd_in_year = self.birthday
+        bd_in_year = self.birthday.value
         bd_in_year = bd_in_year.replace(year=date.today().year)
         if bd_in_year > date.today():
             difference = bd_in_year - date.today()
@@ -172,7 +172,7 @@ class Record:
         """Returns a dictionary with all information about the contact"""
         user_data = dict()
         user_data['name'] = self.name.value
-        user_data['phone'] = self.get_all_phones()
+        user_data['phones'] = self.get_all_phones()
         if self.address:
             user_data['address'] = self.address.value
         if self.email:

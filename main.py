@@ -227,7 +227,7 @@ OPERATIONS = {'info': info_funk,
               'find': search_contact,
               'gfind': global_search,
               'about': contact_info,
-              'about all': about_all,
+              #'about all': about_all,
               'all numbers': all_numbers
               }
 

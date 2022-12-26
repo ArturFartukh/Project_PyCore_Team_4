@@ -2,7 +2,7 @@ from BookClasses import AddressBook
 import pickle
 
 
-def new() -> str:
+def new():
     book_name = input('Enter new book name: ')
     book_name = book_name.strip()
     book = AddressBook()
@@ -10,7 +10,7 @@ def new() -> str:
     return book, f'A new book [{book_name}] has been created.\n'
 
 
-def save(book) -> str:
+def save(book):
 
     if not book.book_name:
         print('This is a new book.\n')
@@ -71,13 +71,15 @@ def save(book) -> str:
                 return book, 'Unknown command!\nAbort save...'
 
 
-def load(book) -> str:
+def load(book):
+    all_books = []
     try:
         with open('./Saved books/saved_books.txt', 'r') as fh:
             book_list = fh.readlines()
             print('\nSaved books:')
-            for book_name in book_list:
-                print(book_name, end='')
+            for count, book_name in enumerate(book_list, 1):
+                all_books.append(book_name.strip())
+                print(f'{count} {book_name}', end='')
     except FileNotFoundError:
         print('\nSaved books not found.\n')
         user_choice = input('Do you want to create a new book? Y/N: ')
@@ -88,7 +90,11 @@ def load(book) -> str:
         else:
             return book, 'Unknown command\nAbort...'
 
-    book_file = input('\nEnter book name: ')
+    index = input('\nMake your choice: ')
+    if index.isdigit():
+        book_file = all_books[int(index) - 1]
+    else:
+        return book, '\nWrong command.\nAbort loading...\n'
     try:
         with open(f'./Saved books/{book_file}.dat', 'rb') as fh:
             book = pickle.load(fh)

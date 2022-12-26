@@ -11,7 +11,9 @@ def contact_info_func(name: str, book):
         elif isinstance(contact_info[key], list):
             if key == 'phones':
                 result += f'{key.title()}: '
-                for value in contact_info[key]:
+                for count, value in enumerate(contact_info[key], 1):
+                    if count in (4, 7, 10):
+                        result += f'\n{" " * 8}'
                     result += f'{value}, '
                 result += '\b\b\n'
             elif key == 'notes':

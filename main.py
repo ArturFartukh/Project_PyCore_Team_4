@@ -67,7 +67,7 @@ def info_funk() -> str:
            'organize files - [organize files Path] - Sorts the files in the specified directory\n'\
            'add contact - [add Name 0123456789] - add new contact/contact and number\n'\
            'change phone - [change phone  Name 0123456789] - change contact number\n'\
-           'del - [del Name 0123456789] - delete contact/contact number\n'\
+           'del contact - [del Name 0123456789] - delete contact/contact number\n'\
            'add address - [add address Name Address] - add address to a contact\n'\
            'add email - [add email Name E-mail] - add e-mail to a contact\n'\
            'change email - [change email Name E-mail] - change e-mail in contact\n'\
@@ -230,7 +230,7 @@ OPERATIONS = {'info': info_funk,
               'hi': hello_func,
               'add contact': add_contact,
               'change phone': change_phone,
-              'del': del_contact_or_number,
+              'del contact': del_contact_or_number,
               'add address': add_address,
               'change address': change_address,
               'add email': add_email,

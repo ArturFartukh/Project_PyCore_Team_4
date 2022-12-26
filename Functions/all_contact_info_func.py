@@ -1,4 +1,4 @@
-def contact_info_func(name: str, book):
+def all_contact_info_func():
     name = name.strip().title()
     if name not in book.data.keys():
         return f'Contact with the name [{name}] not found.'

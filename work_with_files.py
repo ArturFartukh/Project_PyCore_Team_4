@@ -29,9 +29,8 @@ def save(book):
             print(f'\nA book with the name {book.book_name} already exists.\n')
             print('What action do you want to perform?:\n'
                   '1 Enter another name\n'
-                  '2 Combine both books and save\n'
-                  '3 Replace the saved book with a new one\n'
-                  '4 Cancel save\n')
+                  '2 Replace the saved book with a new one\n'
+                  '3 Cancel save\n')
             user_choice = input('Enter your choice: ')
             if user_choice == '1':
                 while True:
@@ -50,22 +49,12 @@ def save(book):
                     print('Try again.\n')
             elif user_choice == '2':
                 try:
-                    with open(f'./Saved books/{book.book_name}.dat', 'rb') as fh:
-                        old_book = pickle.load(fh)
-                        book.merging_books(old_book)
-                except FileNotFoundError:
-                    raise FileNotFoundError('File not found.\n')
-                with open(f'./Saved books/{book.book_name}.dat', 'wb') as fh:
-                    pickle.dump(book, fh)
-                return book, 'The books were merged and saved.\n'
-            elif user_choice == '3':
-                try:
                     with open(f'./Saved books/{book.book_name}.dat', 'wb') as fh:
                         pickle.dump(book, fh)
                     return book, f'The book [{book.book_name}] was rewritten.\n'
                 except FileNotFoundError:
                     raise FileNotFoundError('File not found.\n')
-            elif user_choice == '4':
+            elif user_choice == '3':
                 return book, 'Cancel save...\n'
             else:
                 return book, 'Unknown command!\nAbort save...'

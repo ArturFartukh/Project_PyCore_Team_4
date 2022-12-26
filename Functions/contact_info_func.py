@@ -20,5 +20,5 @@ def contact_info_func(name: str, book):
                 for count, note in enumerate(contact_info[key], 1):
                     result += f'{count}. [{note}]\n'
         else:
-            result += f'{key.title()}: {contact_info[key]}\n'
+            result += f'{key.title()}: {contact_info[key]})\n'
     return result

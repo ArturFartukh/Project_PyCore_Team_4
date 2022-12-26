@@ -17,6 +17,7 @@ from Functions.all_numbers_func import *
 def main():
     """Main function"""
     print('Start!')
+    print('To see the available commands, enter "info" bks of quotes.')
     while True:
         input_command = input('>>> ')
         if input_command.lower() in STOP_LIST:
@@ -63,23 +64,23 @@ def info_funk() -> str:
            'new book - create a new book\n' \
            'load book - load the book\n' \
            'save book - save the book\n' \
-           'organize files - organize files Path - Sorts the files in the specified directory\n'\
-           'add contact - "add Name 0123456789" - add new contact/contact and number\n'\
-           'change phone - "change phone  Name 0123456789" - change contact number\n'\
-           'del - "del Name 0123456789" - delete contact/contact number\n'\
-           'add address - "add address Name Address" - add address to a contact\n'\
-           'add email - "add email Name E-mail" - add e-mail to a contact\n'\
-           'change email - "change email Name E-mail" - change e-mail in contact\n'\
-           'add birthday - "add birthday dd.mm.yyyy" - add birthday to а contact\n'\
-           'when birthday - "when birthday Name" - remaining days until the birthday\n'\
-           'add note - add note Note - add note to а contact\n'\
-           'find note - find note Name string - find note in contact\n'\
-           'add tags - add tags Name - add tags to а contact\n'\
-           'tag - tag Str - find to tag\n'\
-           'find tag - find tag Tag - searches for a note by tag\n'\
-           'find - find Name/Number - search for a contact by name/number\n'\
-           'gfind - gfind Name/Number - find a contact by name/number in all saved books\n'\
-           'about - about Name - all contact information\n'\
+           'organize files - [organize files Path] - Sorts the files in the specified directory\n'\
+           'add contact - [add Name 0123456789] - add new contact/contact and number\n'\
+           'change phone - [change phone  Name 0123456789] - change contact number\n'\
+           'del - [del Name 0123456789] - delete contact/contact number\n'\
+           'add address - [add address Name Address] - add address to a contact\n'\
+           'add email - [add email Name E-mail] - add e-mail to a contact\n'\
+           'change email - [change email Name E-mail] - change e-mail in contact\n'\
+           'add birthday - [add birthday dd.mm.yyyy] - add birthday to а contact\n'\
+           'when birthday - [when birthday Name] - remaining days until the birthday\n'\
+           'add note - [add note Note] - add note to а contact\n'\
+           'find note - [find note Name string] - find note in contact\n'\
+           'add tags - [add tags Name] - add tags to а contact\n'\
+           'tag - [tag Str] - find to tag\n'\
+           'find tag - [find tag Tag] - searches for a note by tag\n'\
+           'find - [find Name/Number] - search for a contact by name/number\n'\
+           'gfind - [gfind Name/Number] - find a contact by name/number in all saved books\n'\
+           'about - [about Name] - all contact information\n'\
            'about all - all information about all contacts\n'\
            'all numbers - show all numbers in the book\n'
 
@@ -210,7 +211,7 @@ def contact_info(name: str) -> str:
 
 def all_contact_info() -> str:
     global book
-    result = all_contact_info_func()
+    result = all_contact_info_func(book)
     return result
 
 
@@ -242,7 +243,7 @@ OPERATIONS = {'info': info_funk,
               'tag': search_to_teg,  # !!!
               'find': search_contact,
               'gfind': global_search,
-              'about': contact_info,
+              'about contact': contact_info,
               'about all': all_contact_info,
               'all numbers': all_numbers
               }

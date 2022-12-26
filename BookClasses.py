@@ -110,7 +110,7 @@ class Record:
             return f'\n{self.name} birthday, after {difference.days} days.\n'
         elif bd_in_year < date.today():
             difference = bd_in_year.replace(year=date.today().year + 1) - date.today()
-            return f'\n{self.name} birthday, after {difference.days} days.\n'
+            return f'{difference.days} days.\n'
         else:
             return f"Today is {self.name.value}'s birthday!"
 

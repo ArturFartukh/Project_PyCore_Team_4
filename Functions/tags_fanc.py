@@ -20,15 +20,18 @@ def add_tags_func(data: str, book):
                     splitter = i
                     if splitter:
                         break
-            tags = tags.split(splitter)
-            tags = [tag.strip().lower() for tag in tags]
+            try:
+                tags = tags.split(splitter)
+                tags = [tag.strip().lower() for tag in tags]
+            except ValueError:
+                pass
             contact.add_tags(user_input, tags)
         else:
             return book, 'Invalid choice.'
     else:
         return book, f'\nContact {name} has no notes.\n'
 
-    return book, f'\nYour tags: {tags} saved.\n'
+    return book, f'\nYour tags: [{tags}] saved.\n'
 
 
 def find_tags_func(tag: str, book):

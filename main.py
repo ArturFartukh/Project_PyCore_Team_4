@@ -7,6 +7,7 @@ from Functions.birthday_func import *
 from Functions.note_func import *
 from Functions.tags_fanc import *
 from Functions.search_contact_func import *
+from Functions.search_contact_global_func import *
 from Functions.all_contact_info import *
 from Functions.all_numbers_func import *
 
@@ -60,7 +61,7 @@ def info_funk() -> str:
            'new book - create a new book\n' \
            'load book - load the book\n' \
            'save book - save the book\n' \
-           'add - "add Name 0123456789" - add new contact/contact and number\n'\
+           'add contact - "add Name 0123456789" - add new contact/contact and number\n'\
            'change phone - "change phone  Name 0123456789" - change contact number\n'\
            'del - "del Name 0123456789" - delete contact/contact number\n'\
            'add address - "add address Name Address" - add address to a contact\n'\
@@ -186,6 +187,12 @@ def search_contact(data: str) -> str:
     return result
 
 
+def global_search(data: str) -> str:
+    global book
+    result = search_contact_global_func(data)
+    return result
+
+
 def contact_info(name: str) -> str:
     global book
     result = all_contact_info(name, book)
@@ -218,9 +225,9 @@ OPERATIONS = {'info': info_funk,
               'add tags': add_tags,
               'tag': search_to_teg,
               'find': search_contact,
-              #'gfind': global_search,
+              'gfind': global_search,
               'about': contact_info,
-              #'about all': about_all,
+              'about all': about_all,
               'all numbers': all_numbers
               }
 

@@ -263,7 +263,7 @@ class Note(Field):
 
     def __init__(self, value: str):
         super().__init__(value)
-        self.__tags = None
+        self._tags = None
 
     @Field.value.setter
     def value(self, value: str):
@@ -271,7 +271,7 @@ class Note(Field):
 
     @property
     def tags(self):
-        return self.__tags
+        return self._tags
 
     @tags.setter
     def tags(self, tags: str):
@@ -285,4 +285,4 @@ class Note(Field):
                 tag = ''
             elif not element.isalpha() and not element.isnumeric() and not tag:
                 continue
-        self.__tags = new_tags
+        self._tags = new_tags

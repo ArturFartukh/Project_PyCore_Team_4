@@ -6,7 +6,7 @@ from Functions.address_func import *
 from Functions.email_func import *
 from Functions.birthday_func import *
 from Functions.note_func import *
-from Functions.tags_fanc import *
+from Functions.tags_fгnc import *
 from Functions.search_contact_func import *
 from Functions.search_contact_global_func import *
 from Functions.contact_info_func import *

@@ -4,7 +4,7 @@ from Functions.contact_func import *
 from Functions.address_func import *
 from Functions.email_func import *
 from Functions.birthday_func import *
-# from Functions.add_note import *
+from Functions.note_func import *
 # from Functions.search_contact import *
 from Functions.all_contact_info import *
 from Functions.all_numbers_func import *
@@ -153,6 +153,18 @@ def when_birthday(data: str) -> str:
     return result
 
 
+def add_note(data: str) -> str:
+    global book
+    book, result = add_note_func(data, book)
+    return result
+
+
+def search_in_notes(data: str) -> str:
+    global book
+    result = search_in_notes_func(data, book)
+    return result
+
+
 def contact_info(name: str) -> str:
     global book
     result = all_contact_info(name, book)
@@ -180,8 +192,8 @@ OPERATIONS = {'info': info_funk,
               'change email': change_email,
               'add birthday': add_birthday,
               'when birthday': when_birthday,
-              #'add note': add_note,
-              #'find note': search_in_notes,
+              'add note': add_note,
+              'find note': search_in_notes,
               #'find': search_contact,
               #'gfind': global_search,
               'about': contact_info,

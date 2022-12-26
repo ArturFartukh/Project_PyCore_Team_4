@@ -15,9 +15,10 @@ def all_contact_info(name: str, book):
                     result += f'[{value}], '
                 result += '\b\b\n'
             elif key == 'notes':
+                result += f'{"-" * 30}\n'
                 result += f'[{key}]:\n'
                 for note in contact_info[key]:
-                    result += f'[{note}]:\n'
-            else:
-                result += f'[{key}]: [{contact_info[key]}]\n'
+                    result += f'[{note}]\n'
+        else:
+            result += f'[{key}]: [{contact_info[key]}]\n'
     return result

@@ -1,7 +1,7 @@
 from split_data import *
 
 
-def add_email_func(data: str, book) -> str:
+def add_email_func(data: str, book):
     name, email = split_data(data)
     if name not in book.data.keys():
         return book, '\nThis user not in contact book.\n'

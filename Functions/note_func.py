@@ -30,3 +30,14 @@ def search_in_notes_func(data: str, book) -> str:
             return '\nCould n`t find anything\n'
         else:
             return output_message
+
+
+def change_notes_func(data: str, book):
+    name, note = split_data(data)
+    if name not in book.data.keys():
+        return f'This user not in contact books'
+    record = book[name]
+    if note:
+        note = input('Please enter note: ')
+        record.add_note(note)
+    return f'User: {name} note has been changed '

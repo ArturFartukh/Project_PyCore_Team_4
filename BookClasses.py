@@ -42,6 +42,9 @@ class AddressBook(UserDict):
             all_contacts.append({name: phones})
         return all_contacts
 
+    def merging_books(self, book):
+        self.data = book.update(self.data)
+
 
 class Record:
     """Contact information"""

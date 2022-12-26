@@ -102,7 +102,7 @@ class Record:
         """Deletes the date of birth"""
         self.birthday = None
 
-    def days_to_birthday(self):
+    def next_birthday(self):
         """Returns the number of days until the birthday"""
         if not self.birthday:
             return f'Date of birth not specified.'
@@ -153,7 +153,7 @@ class Record:
         """Returns a list of all phone numbers for a contact"""
         return [number.value for number in self.phones]
 
-    def phone_in_contact(self, phone: str) -> bool:
+    def has_phone(self, phone: str) -> bool:
         """Checks whether the specified number is in the list of contact numbers.
         Returns True or False"""
         for number in self.phones:

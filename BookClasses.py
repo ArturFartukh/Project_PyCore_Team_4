@@ -163,9 +163,7 @@ class Record:
 
     def get_all_info(self) -> dict:
         """Returns a dictionary with all information about the contact"""
-        user_data = dict()
-        user_data['name'] = self.name.value
-        user_data['phones'] = self.get_all_phones()
+        user_data = {'name': self.name.value, 'phones': self.get_all_phones()}
         if self.address:
             user_data['address'] = self.address.value
         if self.email:

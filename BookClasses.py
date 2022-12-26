@@ -131,12 +131,9 @@ class Record:
 
     def del_note(self, note_number: str):
         """Deletes the selected note"""
-        if len(self.notes) < int(note_number):
-            raise IndexError
-        else:
-            index = int(note_number) - 1
-            remove_note = self.notes[index]
-            self.notes.remove(remove_note)
+        index = int(note_number) - 1
+        remove_note = self.notes[index]
+        self.notes.remove(remove_note)
 
     def add_tags(self, note_number: str, tags_data: str):
         """Adds tags to the selected note"""
@@ -149,12 +146,9 @@ class Record:
 
     def del_tags(self, note_number: str):
         """Removes tags from the selected note"""
-        if len(self.notes) < int(note_number):
-            raise IndexError
-        else:
-            index = int(note_number) - 1
-            note = self.notes[index]
-            note.tags = None
+        index = int(note_number) - 1
+        note = self.notes[index]
+        note.tags = None
 
     def get_all_phones(self) -> list:
         """Returns a list of all phone numbers for a contact"""

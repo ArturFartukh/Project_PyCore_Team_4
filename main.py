@@ -1,17 +1,7 @@
 from BookClasses import AddressBook
 from work_with_files import new, save, load
 from file_organizer import *
-from Functions.contact_func import *
-from Functions.address_func import *
-from Functions.email_func import *
-from Functions.birthday_func import *
-from Functions.note_func import *
-from Functions.tags_fгnc import *
-from Functions.search_contact_func import *
-from Functions.search_contact_global_func import *
-from Functions.contact_info_func import *
-from Functions.all_contact_info_func import *
-from Functions.all_numbers_func import *
+from functions import *
 
 
 def main():

@@ -173,6 +173,18 @@ def add_note(data: str) -> str:
     return result
 
 
+def change_note(data: str) -> str:
+    global book
+    book, result = change_notes_func(data, book)
+    return result
+
+
+def del_note(data: str) -> str:
+    global book
+    book, result = del_note_func(data, book)
+    return result
+
+
 def search_in_notes(data: str) -> str:
     global book
     result = search_in_notes_func(data, book)
@@ -238,6 +250,8 @@ OPERATIONS = {'info': info_funk,
               'add birthday': add_birthday,
               'when birthday': when_birthday,
               'add note': add_note,
+              'change note': change_note,
+              'del note': del_note,
               'find note': search_in_notes,
               'add tags': add_tags,
               'tag': search_to_teg,  # !!!

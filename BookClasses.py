@@ -123,17 +123,13 @@ class Record:
 
     def change_note(self, note_number: str, note_data: str):
         """Changes the selected note"""
-        if len(self.notes) < int(note_number):
-            raise IndexError
-        else:
-            index = int(note_number) - 1
-            self.notes[index] = Note(note_data)
+        index = int(note_number) - 1
+        self.notes[index] = Note(note_data)
 
     def del_note(self, note_number: str):
         """Deletes the selected note"""
         index = int(note_number) - 1
-        remove_note = self.notes[index]
-        self.notes.remove(remove_note)
+        self.notes.remove(self.notes[index])
 
     def add_tags(self, note_number: str, tags_data: str):
         """Adds tags to the selected note"""

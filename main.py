@@ -9,7 +9,7 @@ from Functions.note_func import *
 from Functions.tags_fanc import *
 from Functions.search_contact_func import *
 from Functions.search_contact_global_func import *
-from Functions.all_contact_info import *
+from Functions.contact_info_func import *
 from Functions.all_numbers_func import *
 
 
@@ -62,6 +62,7 @@ def info_funk() -> str:
            'new book - create a new book\n' \
            'load book - load the book\n' \
            'save book - save the book\n' \
+           'organize files - organize files Path - Sorts the files in the specified directory\n'\
            'add contact - "add Name 0123456789" - add new contact/contact and number\n'\
            'change phone - "change phone  Name 0123456789" - change contact number\n'\
            'del - "del Name 0123456789" - delete contact/contact number\n'\
@@ -202,7 +203,13 @@ def global_search(data: str) -> str:
 
 def contact_info(name: str) -> str:
     global book
-    result = all_contact_info(name, book)
+    result = contact_info_func(name, book)
+    return result
+
+
+def all_contact_info(name: str) -> str:
+    global book
+    result = all_contact_info_func(book)
     return result
 
 
@@ -235,7 +242,7 @@ OPERATIONS = {'info': info_funk,
               'find': search_contact,
               'gfind': global_search,
               'about': contact_info,
-              #'about all': about_all,
+              'about all': all_contact_info,
               'all numbers': all_numbers
               }
 

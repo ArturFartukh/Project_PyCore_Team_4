@@ -1,4 +1,4 @@
-from phone_validator import phone_validator
+from Support_funcs.phone_validator import *
 
 
 def split_data(data: str) -> tuple:

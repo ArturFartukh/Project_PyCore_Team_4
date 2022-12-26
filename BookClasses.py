@@ -141,7 +141,7 @@ class Record:
     def add_tags(self, note_number: str, tags_data: str):
         """Adds tags to the selected note"""
         if len(self.notes) < int(note_number):
-            raise IndexError
+            raise 'Note number out of range.'
         else:
             index = int(note_number) - 1
             note = self.notes[index]
@@ -264,6 +264,10 @@ class Note(Field):
     def __init__(self, value: str):
         super().__init__(value)
         self.__tags = None
+
+    @Field.value.setter
+    def value(self, value: str):
+        self._value = value
 
     @property
     def tags(self):

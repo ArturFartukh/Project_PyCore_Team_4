@@ -1,15 +1,14 @@
-from main import book
-from phone_validator import *
+from Support_funcs.phone_validator import *
 
 
-def search_contact(data: str) -> str:
+def search_contact_func(data: str, book) -> str:
 
     name = None
     phone = None
     contact = None
 
     if data[0].isalpha():
-        name = data.strip().lower()
+        name = data.strip().title()
     elif data[0].isdigit() or (data[0] == '+' and data[1:].isdigit()):
         phone = phone_validator(data)
 
@@ -18,9 +17,9 @@ def search_contact(data: str) -> str:
     elif name:
         contact = book[name]
     elif phone:
-        for record in book.data:
-            if record.phone_in_contact(phone):
-                contact = record
+        for key in book.data.keys():
+            if book[key].phone_in_contact(phone):
+                contact = book[key]
     else:
         return 'Nothing found.\n'
 

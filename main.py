@@ -5,14 +5,15 @@ from Functions.address_func import *
 from Functions.email_func import *
 from Functions.birthday_func import *
 from Functions.note_func import *
-# from Functions.search_contact import *
+from Functions.tags_fanc import *
+from Functions.search_contact_func import *
 from Functions.all_contact_info import *
 from Functions.all_numbers_func import *
 
 
 def main():
     """Main function"""
-    
+    print('Start!')
     while True:
         input_command = input('>>> ')
         if input_command.lower() in STOP_LIST:
@@ -37,6 +38,7 @@ def command_parser(input_command: str):
         if input_command.startswith(key):
             command = key
             data = input_command[len(command):]
+            data = data.strip()
             break
     if data:
         return func_call(command)(data)
@@ -67,8 +69,9 @@ def info_funk() -> str:
            'add birthday - "add birthday dd.mm.yyyy" - add birthday to а contact\n'\
            'when birthday - "when birthday Name" - remaining days until the birthday\n'\
            'add note - add note Note - add note to а contact\n'\
-           'find note - find note string - find note in contact\n'\
+           'find note - find note Name string - find note in contact\n'\
            'add tags - add tags Name - add tags to а contact\n'\
+           'tag - tag Str - find to tag\n'\
            'find tag - find tag Tag - searches for a note by tag\n'\
            'find - find Name/Number - search for a contact by name/number\n'\
            'gfind - gfind Name/Number - find a contact by name/number in all saved books\n'\
@@ -165,6 +168,24 @@ def search_in_notes(data: str) -> str:
     return result
 
 
+def add_tags(data: str) -> str:
+    global book
+    book, result = add_tags_func(data, book)
+    return result
+
+
+def search_to_teg(data: str) -> str:
+    global book
+    result = find_tags_func(data, book)
+    return result
+
+
+def search_contact(data: str) -> str:
+    global book
+    result = search_contact_func(data, book)
+    return result
+
+
 def contact_info(name: str) -> str:
     global book
     result = all_contact_info(name, book)
@@ -194,7 +215,9 @@ OPERATIONS = {'info': info_funk,
               'when birthday': when_birthday,
               'add note': add_note,
               'find note': search_in_notes,
-              #'find': search_contact,
+              'add tags': add_tags,
+              'tag': search_to_teg,
+              'find': search_contact,
               #'gfind': global_search,
               'about': contact_info,
               #'about all': about_all,
@@ -212,7 +235,7 @@ STOP_LIST = ('good bye',
              )
 
 if __name__ == '__main__':
-
+    print('Loading...')
     book = AddressBook()
 
     main()

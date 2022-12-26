@@ -1,6 +1,6 @@
 from BookClasses import Record
-from split_data import *
-import phone_validator
+from Support_funcs.split_data import *
+from Support_funcs.phone_validator import *
 
 
 def add_func(data: str, book):

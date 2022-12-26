@@ -1,7 +1,7 @@
 import pickle
 
 
-def global_search(data: str):
+def search_contact_global_func(data: str):
     name = None
     phone = None
     result = []

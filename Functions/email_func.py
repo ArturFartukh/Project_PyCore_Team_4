@@ -1,4 +1,4 @@
-from Support_funcs.split_data import *
+from support_funcs import split_data
 
 
 def add_email_func(data: str, book):

@@ -1,4 +1,4 @@
-from Support_funcs.phone_validator import *
+from support_funcs import phone_validator
 import pickle
 
 
@@ -15,9 +15,9 @@ def search_contact_global_func(data: str):
         return '\nUnknown data\n'
 
     if name:
-        with open('./Saved books/saved_books.txt', 'r') as file_r:
+        with open('./saved_books/saved_books.txt', 'r') as file_r:
             for book in file_r.readlines():
-                with open(f'./Saved books/{book.strip()}.dat', 'rb') as file_rb:
+                with open(f'./saved_books/{book.strip()}.dat', 'rb') as file_rb:
                     search_book = pickle.load(file_rb)
                     for contact in search_book.data:
                         if name in contact:
@@ -25,9 +25,9 @@ def search_contact_global_func(data: str):
                             if contact_info not in result:
                                 result.append(contact_info)
     elif phone:
-        with open('./Saved books/saved_books.txt', 'r') as file_r:
+        with open('./saved_books/saved_books.txt', 'r') as file_r:
             for book in file_r.readlines():
-                with open(f'./Saved books/{book.strip()}.dat', 'rb') as file_rb:
+                with open(f'./saved_books/{book.strip()}.dat', 'rb') as file_rb:
                     search_book = pickle.load(file_rb)
                     for contacts in search_book.get_all_contacts():
                         for key, numbers in contacts.items():

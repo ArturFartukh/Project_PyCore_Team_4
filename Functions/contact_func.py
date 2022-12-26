@@ -1,6 +1,6 @@
 from BookClasses import Record
-from Support_funcs.split_data import *
-from Support_funcs.phone_validator import *
+from support_funcs import split_data
+from support_funcs import phone_validator
 
 
 def add_func(data: str, book):
@@ -18,9 +18,9 @@ def add_func(data: str, book):
         return book, f'\nNew contact has been added:\n[{name}]:[{phone}]\n'
     
     contact = book.data[name]
-    if contact.phone_in_contact(phone):
+    if contact.has_phone(phone):
         return book, f'This phone number already exists!'
-    elif not contact.phone_in_contact(phone) and phone:
+    elif not contact.has_phone(phone) and phone:
         contact.add_phone(phone)
         return book, f'\nNumber [{phone}] has been added to contact: [{name}]\n'
     else:
@@ -33,7 +33,7 @@ def change_phone_func(data: str, book):
 
     if name in book.data.keys():
         contact = book.data[name]
-        if contact.phone_in_contact(phone_old):
+        if contact.has_phone(phone_old):
             phone_new = input('Please enter new phone number: ')
             phone_new = phone_validator(phone_new)
             contact.change_phone(phone_old, phone_new)
@@ -50,7 +50,7 @@ def del_func(data: str, book):
     if name not in book.data.keys():
         return book, f'\nContact with name [{name}] not found!\n'
     contact = book.data[name]
-    if contact.phone_in_contact(phone):
+    if contact.has_phone(phone):
         confirmation = input(f'Do you want to delete phone [{phone}]? Y/N: ')
         if confirmation.lower() in ('y', 'yes'):
             contact.del_phone(phone)

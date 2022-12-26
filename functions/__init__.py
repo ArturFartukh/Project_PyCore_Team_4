@@ -31,3 +31,5 @@ __all__ = ['add_address_func',
            'add_tags_func',
            'find_tags_func'
            ]
+
+print('Loading functions...')

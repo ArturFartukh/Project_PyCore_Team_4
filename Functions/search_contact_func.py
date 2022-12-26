@@ -1,4 +1,4 @@
-from Support_funcs.phone_validator import *
+from support_funcs import phone_validator
 
 
 def search_contact_func(data: str, book) -> str:
@@ -18,7 +18,7 @@ def search_contact_func(data: str, book) -> str:
         contact = book[name]
     elif phone:
         for key in book.data.keys():
-            if book[key].phone_in_contact(phone):
+            if book[key].has_phone(phone):
                 contact = book[key]
     else:
         return 'Nothing found.\n'

@@ -1,4 +1,4 @@
-from Support_funcs.split_data import *
+from support_funcs import split_data
 
 
 def add_birthday_func(data: str, book):
@@ -16,5 +16,5 @@ def days_before_birthday_func(data: str, book):
     if name not in book:
         raise ValueError('No such contact found!')
     record = book[name]
-    result = record.days_to_birthday()
+    result = record.next_birthday()
     return result

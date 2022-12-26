@@ -14,5 +14,3 @@ def all_numbers_func(book) -> str:
 
     if result:
         return result + f'{"=" * 30}\n'
-    else:
-        return 'The book is empty.\n' + "=" * 30

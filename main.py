@@ -1,5 +1,6 @@
 from BookClasses import AddressBook
 from work_with_files import new, save, load
+from file_organizer import *
 from Functions.contact_func import *
 from Functions.address_func import *
 from Functions.email_func import *
@@ -101,6 +102,12 @@ def save_book():
     global book
     book, result = save(book)
     return result
+
+
+def organize_files(path=''):
+    if not path:
+        path = input('Enter the directory path: ')
+    return run_skript(path)
 
 
 def add_contact(data: str) -> str:
@@ -209,6 +216,7 @@ OPERATIONS = {'info': info_funk,
               'new book': new_book,
               'load book': load_book,
               'save book': save_book,
+              'organize files': organize_files,
               'hello': hello_func,
               'hi': hello_func,
               'add contact': add_contact,

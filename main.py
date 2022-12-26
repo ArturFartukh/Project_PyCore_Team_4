@@ -238,7 +238,7 @@ OPERATIONS = {'info': info_funk,
               'add note': add_note,
               'find note': search_in_notes,
               'add tags': add_tags,
-              'tag': search_to_teg,
+              'tag': search_to_teg, #!!!
               'find': search_contact,
               'gfind': global_search,
               'about': contact_info,

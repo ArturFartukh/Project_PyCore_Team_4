@@ -73,7 +73,7 @@ def info_funk() -> str:
            'gfind - [gfind Name/Number] - find a contact by name/number in all saved books\n' \
            'about contact - [about contact Name] - all contact information\n' \
            'about all - all information about all contacts\n' \
-           'all numbers - show all numbers in the book\n'
+           'all phones - show all numbers in the book\n'
 
 
 def hello_func():
@@ -250,7 +250,7 @@ OPERATIONS = {'info': info_funk,
               'gfind': global_search,
               'about contact': contact_info,
               'about all': all_contact_info,
-              'all numbers': all_numbers
+              'all phones': all_numbers
               }
 
 STOP_LIST = ('good bye',

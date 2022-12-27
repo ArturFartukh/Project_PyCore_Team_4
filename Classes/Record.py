@@ -6,6 +6,8 @@ class Record:
     """Contact information"""
     def __init__(self, new_name, phone=None):
         """Initialization of an instance of a class"""
+        if phone:
+            self.add_phone(phone)
         self.name = Name(new_name)
         self.phones = None
         self.address = None
@@ -110,9 +112,10 @@ class Record:
     def has_phone(self, phone: str) -> bool:
         """Checks whether the specified number is in the list of contact numbers.
         Returns True or False"""
-        for number in self.phones:
-            if number.value == phone:
-                return True
+        if self.phones:
+            for number in self.phones:
+                if number.value == phone:
+                    return True
         return False
 
     def get_all_info(self) -> dict:

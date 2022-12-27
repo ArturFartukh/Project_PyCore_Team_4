@@ -63,7 +63,7 @@ def info_funk() -> str:
            'change address - [change address Name] - change contact address\n' \
            'add email - [add email Name E-mail] - add e-mail to a contact\n' \
            'change email - [change email Name E-mail] - change e-mail in contact\n' \
-           'add birthday - [add birthday dd.mm.yyyy] - add birthday to а contact\n' \
+           'add birthday - [add birthday Name dd.mm.yyyy] - add birthday to а contact\n' \
            'when birthday - [when birthday Name] - remaining days until the birthday\n' \
            'add note - [add note Note] - add note to а contact\n' \
            'find note - [find note Name string] - find note in contact\n' \

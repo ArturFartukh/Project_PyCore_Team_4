@@ -41,13 +41,15 @@ def find_tags_func(tag: str, book):
     for contact in book.data.keys():
         contact = book.data[contact]
         if contact.notes:
-            for note in contact.notes:
-                if tag in note.tags:
-                    result.append(contact)
+            # for note in contact.notes:
+            #     if tag in note.tags:
+            #         print(tag)
+            result.append(contact)           
     if result:
+        result_str = ''
         for contact in result:
             contact_info = contact.get_all_info()
-            result_str = ''
+            # result_str = ''
             for key in contact_info:
                 if isinstance(contact_info[key], str):
                     result_str += f'{key.title()}: {contact_info[key]}\n'

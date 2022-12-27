@@ -9,8 +9,10 @@ from functions.note_func import add_note_func, change_notes_func, del_note_func,
 from functions.search_contact_func import search_contact_func
 from functions.search_contact_global_func import search_contact_global_func
 from functions.tags_fгnc import add_tags_func, find_tags_func
+from functions.interactive import start
 
-__all__ = ['add_address_func',
+__all__ = ['start',
+           'add_address_func',
            'change_address_func',
            'all_contact_info_func',
            'all_numbers_func',

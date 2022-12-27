@@ -4,7 +4,7 @@ from Classes.Phone import Phone
 from Classes.Address import Address
 from Classes.Email import Email
 from Classes.Birthday import Birthday
-from Classes.Name import Name
+from Classes.Note import Note
 from Classes.Record import Record
 from Classes.AddressBook import AddressBook
 

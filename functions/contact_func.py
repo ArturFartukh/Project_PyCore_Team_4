@@ -41,12 +41,12 @@ def change_phone_func(data: str, book):
     for count, number in enumerate(all_phones, 1):
         print(f'{count} {number}')
     choice = input('Select a number to replace: ')
-    if not choice.isdigit() and not 0 < int(choice) <= len(all_phones):
-        return book, '\n\033[31mWrong choice.\nAbolition...\033[0m\n'
+    if not choice.isdigit() or not 0 < int(choice) <= len(all_phones):
+        return book, '\033[31mWrong choice.\nAbolition...\033[0m\n'
     new_phone = input('Enter a new number: ')
     new_phone = phone_validator(new_phone)
     if not new_phone:
-        return book, '\n\033[31mInvalid number format.\nAbolition...\033[0m\n'
+        return book, '\033[31mInvalid number format.\nAbolition...\033[0m\n'
     contact.change_phone(choice, new_phone)
     return book, f'\n<<< The contact number has been changed to [{new_phone}]\n'
 

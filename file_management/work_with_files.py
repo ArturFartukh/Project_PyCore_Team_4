@@ -1,4 +1,4 @@
-from BookClasses import AddressBook
+from Classes import AddressBook
 import pickle
 
 
@@ -7,7 +7,7 @@ def new():
     book_name = book_name.strip()
     book = AddressBook()
     book.change_book_name(book_name)
-    return book, f'A new book [{book_name}] has been created.\n'
+    return book, f'<<< A new book [{book_name}] has been created.'
 
 
 def save(book):
@@ -17,14 +17,14 @@ def save(book):
         new_book_name = input('Please enter new book name: ')
         book.change_book_name(new_book_name)
 
-    with open('../saved_books/saved_books.txt', 'r') as file_r:
+    with open('saved_books/saved_books.txt', 'r') as file_r:
         books_list = file_r.readlines()
         if f'{book.book_name}\n' not in books_list:
-            with open('../saved_books/saved_books.txt', 'a') as file_a:
+            with open('saved_books/saved_books.txt', 'a') as file_a:
                 file_a.write(f'{book.book_name}\n')
             with open(f'saved_books/{book.book_name}.dat', 'wb') as fh:
                 pickle.dump(book, fh)
-            return book, f'The book [{book.book_name}] was saved.\n'
+            return book, f'<<< The book [{book.book_name}] was saved.'
         else:
             print(f'\nA book with the name {book.book_name} already exists.\n')
             print('What action do you want to perform?:\n'
@@ -37,34 +37,36 @@ def save(book):
                     print('For exit enter: exit\n')
                     new_book_name = input('Enter new name: ')
                     if new_book_name.lower() == 'exit':
-                        return book, 'Cancel saving the book...\n'
+                        return book, '<<< Cancel saving the book...'
                     book.change_book_name(new_book_name)
                     if f'{book.book_name}\n' not in books_list:
-                        with open('../saved_books/saved_books.txt', 'a') as file_a:
+                        with open('saved_books/saved_books.txt', 'a') as file_a:
                             file_a.write(f'{book.book_name}\n')
                         with open(f'saved_books/{book.book_name}.dat', 'wb') as fh:
                             pickle.dump(book, fh)
-                        return book, f'The book [{book.book_name}] was saved.\n'
+                        return book, f'<<< The book [{book.book_name}] was saved.'
                     print(f'\nA book with the name {book.book_name} already exists.\n')
                     print('Try again.\n')
             elif user_choice == '2':
                 try:
                     with open(f'saved_books/{book.book_name}.dat', 'wb') as fh:
                         pickle.dump(book, fh)
-                    return book, f'The book [{book.book_name}] was rewritten.\n'
+                    return book, f'<<< The book [{book.book_name}] was rewritten.'
                 except FileNotFoundError:
-                    raise FileNotFoundError('File not found.\n')
+                    return book, '<<< File not found.'
             elif user_choice == '3':
-                return book, 'Cancel save...\n'
+                return book, '<<< Cancel save...'
             else:
-                return book, 'Unknown command!\nAbort save...'
+                return book, '<<< Unknown command!\n<<< Abort save...'
 
 
 def load(book):
     all_books = []
     try:
-        with open('../saved_books/saved_books.txt', 'r') as fh:
+        with open('saved_books/saved_books.txt', 'r') as fh:
             book_list = fh.readlines()
+            if not book_list:
+                return book, '<<< There are no saved phone books.'
             print('\nsaved_books:')
             for count, book_name in enumerate(book_list, 1):
                 all_books.append(book_name.strip())
@@ -75,18 +77,18 @@ def load(book):
         if user_choice.upper() == 'Y':
             return new()
         elif user_choice.upper() == 'N':
-            return book, '\nCancel load...\n'
+            return book, '<<< Cancel load...'
         else:
-            return book, 'Unknown command\nAbort...'
+            return book, '<<< Unknown command\n<<< Abort...'
 
     index = input('\nMake your choice: ')
     if index.isdigit():
         book_file = all_books[int(index) - 1]
     else:
-        return book, '\nWrong command.\nAbort loading...\n'
+        return book, '<<< Wrong command.\n<<< Abort loading...'
     try:
         with open(f'saved_books/{book_file}.dat', 'rb') as fh:
             book = pickle.load(fh)
-            return book, f'\nThe book [{book.book_name}] has been loaded.\n'
+            return book, f'<<< The book [{book.book_name}] has been loaded.'
     except FileNotFoundError:
-        return book, '\nFile not found...\nAbort loading...\n'
+        return book, '<<< File not found...\n<<< Abort loading...'

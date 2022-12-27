@@ -60,6 +60,7 @@ def info_funk() -> str:
            'change phone - [change phone  Name 0123456789] - change contact number\n' \
            'del contact - [del Name 0123456789] - delete contact/contact number\n' \
            'add address - [add address Name Address] - add address to a contact\n' \
+           'change address - [change address Name] - change contact address\n' \
            'add email - [add email Name E-mail] - add e-mail to a contact\n' \
            'change email - [change email Name E-mail] - change e-mail in contact\n' \
            'add birthday - [add birthday dd.mm.yyyy] - add birthday to а contact\n' \

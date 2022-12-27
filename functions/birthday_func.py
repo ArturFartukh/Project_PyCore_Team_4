@@ -3,6 +3,13 @@ from support_funcs import split_data
 
 def add_birthday_func(data: str, book):
     name, birth_date = split_data(data)
+    data = ''
+    for i in birth_date:
+        if i.isdigit():
+            data += i
+        else:
+            data += '.'
+    birth_date = data
     if name in book.data.keys():
         contact = book.data[name]
         contact.add_birthday(birth_date)

@@ -1,4 +1,4 @@
-from BookClasses import Record
+from Classes import Record
 from support_funcs import split_data
 from support_funcs import phone_validator
 

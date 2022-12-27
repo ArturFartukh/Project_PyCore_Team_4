@@ -57,7 +57,7 @@ def info_funk() -> str:
            'save book - save the book\n' \
            'organize files - [organize files Path] - Sorts the files in the specified directory\n' \
            'add contact - [add Name 0123456789] - add new contact/contact and number\n' \
-           'change phone - [change phone  Name 0123456789] - change contact number\n' \
+           'change phone - [change phone Name] - change contact number\n' \
            'del contact - [del Name 0123456789] - delete contact/contact number\n' \
            'add address - [add address Name Address] - add address to a contact\n' \
            'change address - [change address Name] - change contact address\n' \

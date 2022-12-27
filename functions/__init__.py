@@ -8,7 +8,7 @@ from functions.email_func import add_email_func, change_email_func
 from functions.note_func import add_note_func, change_notes_func, del_note_func, search_in_notes_func
 from functions.search_contact_func import search_contact_func
 from functions.search_contact_global_func import search_contact_global_func
-from functions.tags_fгnc import add_tags_func, find_tags_func
+from functions.tags_func import add_tags_func, find_tags_func
 from functions.interactive import start
 
 __all__ = ['start',

@@ -1,6 +1,6 @@
 from Classes import AddressBook
 from file_management import sorting_files, new, save, load
-from functions import *
+from Functions import *
 
 book = AddressBook()
 

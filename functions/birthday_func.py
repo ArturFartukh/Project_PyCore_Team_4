@@ -6,7 +6,7 @@ def add_birthday_func(data: str, book):
     name, birth_date = split_data(data)
 
     if name not in book.data.keys():
-        return book, 'This user not in contact book'
+        return book, '<<< This user not in contact book'
 
     contact = book.data[name]
     data = ''
@@ -23,13 +23,18 @@ def add_birthday_func(data: str, book):
         birth_date = '.'.join(birth_date)
 
     contact.add_birthday(birth_date)
-    return book, f'\nBirthday has been added [{name}]:[{contact.birthday}]\n'
+
+    return book, f'\n<<< Birthday has been added [{name}]:[{contact.birthday}]\n'
 
 
 def days_before_birthday_func(data: str, book):
+
     name = data.strip().title()
+
     if name not in book:
-        raise ValueError('No such contact found!')
+        return '<<< No such contact found!'
+
     record = book[name]
     result = record.next_birthday()
+
     return result

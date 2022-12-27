@@ -13,7 +13,7 @@ def search_contact_func(data: str, book) -> str:
         phone = phone_validator(data)
 
     if name and name not in book.data.keys():
-        return f'Contact with the name [{name}] not found.'
+        return f'<<< Contact with the name [{name}] not found.'
     elif name:
         contact = book[name]
     elif phone:
@@ -21,7 +21,7 @@ def search_contact_func(data: str, book) -> str:
             if book[key].has_phone(phone):
                 contact = book[key]
     else:
-        return 'Nothing found.\n'
+        return '<<< Nothing found.\n'
 
     contact_info = contact.get_all_info()
     result = ''

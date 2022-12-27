@@ -5,10 +5,10 @@ def add_tags_func(data: str, book):
     name, tags = split_data(data)
     splitter = ''
     if name not in book.data.keys():
-        return book, '\nThis name not in contact book\n'
+        return book, '\n<<< This name not in contact book\n'
     contact = book[name]
     if contact.notes:
-        print('\nWhich note do you want to tag?\n')
+        print('\n<<< Which note do you want to tag?\n')
         for count, note in enumerate(contact.notes, 1):
             print(count, note)
         user_input = input('Choice note: ')
@@ -27,17 +27,17 @@ def add_tags_func(data: str, book):
                 pass
             contact.add_tags(user_input, tags)
         else:
-            return book, 'Invalid choice.'
+            return book, '<<< Invalid choice.'
     else:
-        return book, f'\nContact {name} has no notes.\n'
+        return book, f'\n<<< Contact {name} has no notes.\n'
 
-    return book, f'\nYour tags: [{tags}] saved.\n'
+    return book, f'\n<<< Your tags: [{tags}] saved.\n'
 
 
 def find_tags_func(tag: str, book):
     tag = tag.strip().lower()
     result = []
-    result_str = 'Nothing found...'
+    result_str = '<<< Nothing found...'
     for contact in book.data.keys():
         contact = book.data[contact]
         if contact.notes:

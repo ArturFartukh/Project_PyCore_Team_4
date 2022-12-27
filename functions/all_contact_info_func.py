@@ -1,7 +1,7 @@
 def all_contact_info_func(book):
     result = ''
     if not book.data:
-        return f'The address book has no contacts yet.'
+        return f'<<< The address book has no contacts yet.'
     for i, kay in enumerate(book.data, 1):
         contact = book[kay]
         contact_info = contact.get_all_info()

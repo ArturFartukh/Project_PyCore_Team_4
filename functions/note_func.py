@@ -4,12 +4,12 @@ from support_funcs import split_data
 def add_note_func(data: str, book):
     name, note = split_data(data)
     if name not in book.data.keys():
-        return book, '\nThis user not in contact book.\n'
+        return book, '\n<<< This user not in contact book.\n'
     record = book[name]
     if not note:
         note = input('Please enter note: ')
     record.add_note(note)
-    return book, f'\nNote has been added to contact: [{name}]\n'
+    return book, f'\n<<< Note has been added to contact: [{name}]\n'
 
 
 def change_notes_func(name: str, book):

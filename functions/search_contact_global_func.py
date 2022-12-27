@@ -6,13 +6,13 @@ def search_contact_global_func(data: str):
     name = None
     phone = None
     result = []
-    result_str = 'Nothing found...'
+    result_str = '<<< Nothing found...'
     if data[0].isalpha():
         name = data.strip().title()
     elif data[0].isdigit() or data[0] == '+':
         phone = phone_validator(data)
     else:
-        return '\nUnknown data\n'
+        return '\n<<< Unknown data\n'
 
     if name:
         with open('./saved_books/saved_books.txt', 'r') as file_r:

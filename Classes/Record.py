@@ -6,10 +6,10 @@ class Record:
     """Contact information"""
     def __init__(self, new_name, phone=None):
         """Initialization of an instance of a class"""
-        if phone:
-            self.add_phone(phone)
         self.name = Name(new_name)
         self.phones = None
+        if phone:
+            self.add_phone(phone)
         self.address = None
         self.email = None
         self.birthday = None

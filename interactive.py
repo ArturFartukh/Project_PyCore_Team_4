@@ -1,4 +1,4 @@
-from BookClasses import AddressBook
+from Classes import AddressBook
 from file_management import sorting_files, new, save, load
 from functions import *
 
@@ -71,7 +71,7 @@ def info_funk() -> str:
            'find tag - [find tag Tag] - searches for a note by tag\n' \
            'find - [find Name/Number] - search for a contact by name/number\n' \
            'gfind - [gfind Name/Number] - find a contact by name/number in all saved books\n' \
-           'about - [about Name] - all contact information\n' \
+           'about contact - [about contact Name] - all contact information\n' \
            'about all - all information about all contacts\n' \
            'all numbers - show all numbers in the book\n'
 

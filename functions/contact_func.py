@@ -25,7 +25,7 @@ def add_func(data: str, book):
         contact.add_phone(phone)
         return book, f'\n<<< Number [{phone}] has been added to contact: [{name}]\n'
     else:
-        return book, '\n<<< This contact already exists./\033[31mInvalid phone!\033[0m\n'
+        return book, '\n<<< This contact exists./\033[31mInvalid phone!\033[0m\n'
 
 
 def change_phone_func(data: str, book):

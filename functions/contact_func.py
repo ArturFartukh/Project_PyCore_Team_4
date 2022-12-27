@@ -8,6 +8,8 @@ def add_func(data: str, book):
 
     name, phone = split_data(data)
 
+    if not name:
+        return book, '\n\033[31m!!! Invalid name format.\033[0m'
     if name not in book.data.keys() and not phone:
         new_contact = Record(name)
         book.add_record(new_contact)

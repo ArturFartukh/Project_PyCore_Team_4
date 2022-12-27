@@ -8,13 +8,13 @@ book = AddressBook()
 def start():
     """Main function"""
     print('Start!\n')
-    print('To see the available commands, enter "info" bks of quotes.')
+    print('To see the available commands, enter "\033[32m\033[1minfo\033[0m" bks of quotes.')
     while True:
         input_command = input('>>> ')
         if input_command.lower() in STOP_LIST:
-            if input('Do you want to save the book? Y/N: ').upper() in ('Y', 'YES'):
+            if input('\033[32mDo you want to save the book? Y/N: \033[0m').upper() in ('Y', 'YES'):
                 save_book()
-            print('Good bye!')
+            print('\033[32mGood bye!\033[0m')
             break
 
         result = command_parser(input_command)

@@ -8,5 +8,5 @@ class Address(Field):
     def address_parser(self, value):
         address = re.findall(r'\w+', value)
         if not address:
-            raise ValueError('This is really address?')
+            return
         self._value = address

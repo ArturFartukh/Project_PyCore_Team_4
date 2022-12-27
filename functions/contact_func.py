@@ -30,19 +30,25 @@ def add_func(data: str, book):
 
 def change_phone_func(data: str, book):
     """Changing an existing contact number"""
-    name, phone_old = split_data(data)
+    name = data.strip().title()
 
-    if name in book.data.keys():
-        contact = book.data[name]
-        if contact.has_phone(phone_old):
-            phone_new = input('Please enter new phone number: ')
-            phone_new = phone_validator(phone_new)
-            contact.change_phone(phone_old, phone_new)
-            return book, f'\n<<< The contact number has been changed from:\n[{phone_old}] to [{phone_new}]\n'
-        else:
-            return book, f"\n<<< This phone number doesn't exist!"
-    else:
+    if name not in book.data.keys():
         return book, "<<< This contact doesn't exist!"
+
+    contact = book.data[name]
+
+    all_phones = contact.get_all_phones()
+    for count, number in enumerate(all_phones, 1):
+        print(f'{count} {number}')
+    choice = input('Select a number to replace: ')
+    if not choice.isdigit() and not 0 < int(choice) <= len(all_phones):
+        return book, '\n\033[31mWrong choice.\nAbolition...\033[0m\n'
+    new_phone = input('Enter a new number: ')
+    new_phone = phone_validator(new_phone)
+    if not new_phone:
+        return book, '\n\033[31mInvalid number format.\nAbolition...\033[0m\n'
+    contact.change_phone(choice, new_phone)
+    return book, f'\n<<< The contact number has been changed to [{new_phone}]\n'
 
 
 def del_func(data: str, book):

@@ -22,11 +22,10 @@ class Record:
         else:
             self.phones.append(Phone(new_phone))
 
-    def change_phone(self, old: str, new: str):
+    def change_phone(self, choice: str, new: str):
         """Changes the phone number"""
-        for number in self.phones:
-            if number.value == old:
-                number.value = new
+        index = int(choice) - 1
+        self.phones[index] = Phone(new)
 
     def del_phone(self, del_phone: str):
         """Deletes a phone number"""
@@ -37,6 +36,9 @@ class Record:
     def add_address(self, address_data: str):
         """Adds an address"""
         self.address = Address(address_data)
+        if not self.address:
+            return False
+        return True
 
     def del_address(self):
         """Deletes the address"""

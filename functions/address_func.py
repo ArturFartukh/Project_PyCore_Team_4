@@ -10,8 +10,9 @@ def add_address_func(data: str, book):
         return book, '\nThis contact already exist address.\n'
     if not address:
         address = input('Please enter an address: ')
-    contact.add_address(address)
-    return book, f'\nAddress: [{address}] has been added to contact [{name}].\n'
+    if contact.add_address(address):
+        return book, f'\nAddress: [{address}] has been added to contact [{name}].\n'
+    return print('\nThis is really address?\n\033[31mCanceling address saving...\033[0m\n')
 
 
 def change_address_func(data: str, book):

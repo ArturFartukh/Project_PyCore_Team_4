@@ -9,7 +9,7 @@ def add_email_func(data: str, book):
     if contact.email:
         return book, '\nEmail for this contact already exist\n'
     if not email:
-        email = input('Please enter an address: ')
+        email = input('Please enter email address: ')
     contact.add_email(email)
     return book, f'\nEmail: [{email}] has been added to contact: [{name}]\n'
 

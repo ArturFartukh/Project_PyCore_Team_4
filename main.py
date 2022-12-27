@@ -1,4 +1,4 @@
-from Functions import start
+from functions import start
 
 if __name__ == '__main__':
     start()

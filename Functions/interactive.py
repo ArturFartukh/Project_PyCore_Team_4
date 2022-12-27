@@ -7,7 +7,7 @@ book = AddressBook()
 
 def start():
     """Main function"""
-    print('Start!')
+    print('Start!\n')
     print('To see the available commands, enter "info" bks of quotes.')
     while True:
         input_command = input('>>> ')

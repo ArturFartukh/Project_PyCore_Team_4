@@ -12,12 +12,12 @@ def search_contact_func(data: str, book) -> str:
     elif data[0].isdigit() or (data[0] == '+' and data[1:].isdigit()):
         phone = phone_validator(data)
 
-    if name and name not in book.data.keys():
+    if name and name not in book.data:
         return f'<<< Contact with the name [{name}] not found.'
     elif name:
         contact = book[name]
     elif phone:
-        for key in book.data.keys():
+        for key in book.data:
             if book[key].has_phone(phone):
                 contact = book[key]
     else:

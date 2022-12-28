@@ -1,6 +1,6 @@
 def contact_info_func(name: str, book):
     name = name.strip().title()
-    if name not in book.data.keys():
+    if name not in book.data:
         return f'<<< Contact with the name [{name}] not found.'
     contact = book[name]
     contact_info = contact.get_all_info()

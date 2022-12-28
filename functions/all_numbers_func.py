@@ -1,6 +1,9 @@
 def all_numbers_func(book) -> str:
     """Displays the entire phonebook."""
 
+    if not book.data:
+        return f'<<< The address book has no contacts yet.'
+
     result = ''
 
     phone_book = book.get_all_contacts()

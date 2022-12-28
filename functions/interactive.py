@@ -23,15 +23,15 @@ def start():
         print(result)
 
 
-@input_error
+# @input_error
 def command_parser(input_command: str):
     """Processing the command entered by the user"""
 
     new_input = input_command.split()
     new_input = [item.lower().strip() for item in new_input if item not in ('', ' ')]
     input_command = ' '.join(new_input)
-    command_fuzz = list(process.extractOne(input_command, OPERATIONS))
-    command = command_fuzz[2]
+    command_fuzz = list(process.extractOne(input_command, OPERATIONS.keys()))
+    command = command_fuzz[0]
     data = input_command[len(command):].strip()
     if data:
         return func_call(command)(data)

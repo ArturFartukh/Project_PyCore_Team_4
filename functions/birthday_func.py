@@ -5,7 +5,7 @@ def add_birthday_func(data: str, book):
 
     name, birth_date = split_data(data)
 
-    if name not in book.data.keys():
+    if name not in book.data:
         return book, '<<< This user not in contact book'
 
     contact = book.data[name]

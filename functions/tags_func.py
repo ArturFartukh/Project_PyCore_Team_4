@@ -4,7 +4,7 @@ from support_funcs import split_data
 def add_tags_func(data: str, book):
     name, tags = split_data(data)
     splitter = ''
-    if name not in book.data.keys():
+    if name not in book.data:
         return book, '\n<<< This name not in contact book\n'
     contact = book[name]
     if contact.notes:
@@ -38,18 +38,17 @@ def find_tags_func(tag: str, book):
     tag = tag.strip().lower()
     result = []
     result_str = '<<< Nothing found...'
-    for contact in book.data.keys():
+    for contact in book.data:
         contact = book.data[contact]
         if contact.notes:
-            # for note in contact.notes:
-            #     if tag in note.tags:
-            #         print(tag)
-            result.append(contact)           
+            for note in contact.notes:
+                if tag in note.tags:
+                    result.append(contact)
+
     if result:
         result_str = ''
         for contact in result:
             contact_info = contact.get_all_info()
-            # result_str = ''
             for key in contact_info:
                 if isinstance(contact_info[key], str):
                     result_str += f'{key.title()}: {contact_info[key]}\n'

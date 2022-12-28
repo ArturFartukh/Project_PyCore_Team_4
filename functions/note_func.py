@@ -3,7 +3,7 @@ from support_funcs import split_data
 
 def add_note_func(data: str, book):
     name, note = split_data(data)
-    if name not in book.data.keys():
+    if name not in book.data:
         return book, '\n<<< This user not in contact book.\n'
     record = book[name]
     if not note:
@@ -14,7 +14,7 @@ def add_note_func(data: str, book):
 
 def change_notes_func(name: str, book):
     name = name.strip().title()
-    if name not in book.data.keys():
+    if name not in book.data:
         return book, f'\nContact with name [{name}] not found!\n'
     record = book[name]
     if not record.notes:
@@ -31,7 +31,7 @@ def change_notes_func(name: str, book):
 
 def del_note_func(name: str, book):
     name = name.strip().title()
-    if name not in book.data.keys():
+    if name not in book.data:
         return book, f'\nContact with name [{name}] not found!\n'
     record = book[name]
     if not record.notes:
@@ -51,7 +51,7 @@ def del_note_func(name: str, book):
 
 def search_in_notes_func(data: str, book) -> str:
     name, search = split_data(data)
-    if name not in book.data.keys():
+    if name not in book.data:
         return '\nThis user not in contact book.\n'
     record = book[name]
     if not record.notes:

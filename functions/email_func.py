@@ -3,7 +3,7 @@ from support_funcs import split_data
 
 def add_email_func(data: str, book):
     name, email = split_data(data)
-    if name not in book.data.keys():
+    if name not in book.data:
         return book, '\n<<< This user not in contact book.\n'
     contact = book[name]
     if contact.email:
@@ -16,7 +16,7 @@ def add_email_func(data: str, book):
 
 def change_email_func(data: str, book):
     name, email = split_data(data)
-    if name not in book.data.keys():
+    if name not in book.data:
         return book, '\n<<< This user not in contact book.\n'
     contact = book[name]
     if not email:

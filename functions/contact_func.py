@@ -10,12 +10,12 @@ def add_func(data: str, book):
 
     if not name:
         return book, '\n<<< \033[31m!!! Invalid name format.\033[0m'
-    if name not in book.data.keys() and not phone:
+    if name not in book.data and not phone:
         new_contact = Record(name)
         book.add_record(new_contact)
         print('\n<<< \033[31m!!! The phone number is not specified.\n!!! Or is specified in the wrong format.\033[0m')
         return book, f'\n<<< New contact has been added:\n[{name}]:[\033[31m\033[1m\033[4mNo number available\033[0m]\n'
-    elif name not in book.data.keys() and phone:
+    elif name not in book.data and phone:
         new_contact = Record(name, phone)
         book.add_record(new_contact)
         return book, f'\n<<< New contact has been added:\n[{name}]:[{phone}]\n'
@@ -34,7 +34,7 @@ def change_phone_func(data: str, book):
     """Changing an existing contact number"""
     name = data.strip().title()
 
-    if name not in book.data.keys():
+    if name not in book.data:
         return book, "<<< This contact doesn't exist!"
 
     contact = book.data[name]
@@ -56,7 +56,7 @@ def change_phone_func(data: str, book):
 def del_func(data: str, book):
     """Deleting contact to the address book"""
     name, phone = split_data(data)
-    if name not in book.data.keys():
+    if name not in book.data:
         return book, f'\n<<< Contact with name [{name}] not found!\n'
     contact = book.data[name]
     if not phone:

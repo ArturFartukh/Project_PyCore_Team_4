@@ -24,5 +24,5 @@ def all_contact_info_func(book):
                         result += f'{count}. [{note}]\n'
             else:
                 result += f'{key.title()}: {contact_info[key]} (after: {contact.next_birthday()})\n'
-        result += f'{"=" * 30}\n'
+        result += f'{"=" * 38}\n'
     return result

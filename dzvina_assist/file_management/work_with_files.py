@@ -68,7 +68,7 @@ def save(book):
 def load(book):
     all_books = []
     try:
-        with open('saved_books/saved_books.txt', 'r') as fh:
+        with open('1saved_books/saved_books.txt', 'r') as fh:
             book_list = fh.readlines()
             if not book_list:
                 return book, '<<< \033[33mThere are no saved phone books.\033[0m\n'

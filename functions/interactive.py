@@ -1,4 +1,5 @@
 from Classes import AddressBook
+from support_funcs import input_error
 from file_management import sorting_files, new, save, load
 from functions import *
 from fuzzywuzzy import process
@@ -22,6 +23,7 @@ def start():
         print(result)
 
 
+@input_error
 def command_parser(input_command: str):
     """Processing the command entered by the user"""
 

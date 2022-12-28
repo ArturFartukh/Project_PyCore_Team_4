@@ -1,6 +1,5 @@
-from Classes import Record
-from support_funcs import split_data
-from support_funcs import phone_validator
+from dzvina_assist.Classes import Record
+from dzvina_assist.support_funcs import split_data, phone_validator
 
 
 def add_func(data: str, book):

@@ -1,4 +1,4 @@
-from Classes import AddressBook
+from dzvina_assist.Classes import AddressBook
 import pickle
 
 

@@ -1,4 +1,4 @@
-from support_funcs import phone_validator
+from dzvina_assist.support_funcs import phone_validator
 
 
 def search_contact_func(data: str, book) -> str:

@@ -1,5 +1,5 @@
 from datetime import date
-from Classes import Name, Phone, Address, Email, Birthday, Note
+from dzvina_assist.Classes import Name, Phone, Address, Email, Birthday, Note
 
 
 class Record:

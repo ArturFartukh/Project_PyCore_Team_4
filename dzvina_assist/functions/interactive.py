@@ -1,7 +1,7 @@
-from Classes import AddressBook
-from support_funcs import input_error
-from file_management import sorting_files, new, save, load
-from functions import *
+from dzvina_assist.Classes import AddressBook
+from dzvina_assist.support_funcs import input_error
+from dzvina_assist.file_management import sorting_files, new, save, load
+from dzvina_assist.functions import *
 from fuzzywuzzy import process
 
 book = AddressBook()

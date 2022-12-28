@@ -1,4 +1,4 @@
-from Classes import Field
+from dzvina_assist.Classes import Field
 import re
 
 

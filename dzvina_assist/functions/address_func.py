@@ -1,4 +1,4 @@
-from support_funcs import split_data
+from dzvina_assist.support_funcs import split_data
 
 
 def add_address_func(data: str, book):

@@ -7,6 +7,7 @@ from dzvina_assist.Classes.Birthday import Birthday
 from dzvina_assist.Classes.Note import Note
 from dzvina_assist.Classes.Record import Record
 from dzvina_assist.Classes.AddressBook import AddressBook
+from dzvina_assist.Classes.Save import Save
 
 __all__ = ['Field',
            'Name',
@@ -16,7 +17,8 @@ __all__ = ['Field',
            'Birthday',
            'Note',
            'Record',
-           'AddressBook'
+           'AddressBook',
+           'Save'
            ]
 
 print('Loading Classes...')

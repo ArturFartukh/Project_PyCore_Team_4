@@ -8,6 +8,7 @@ from dzvina_assist.functions.search_contact_global_func import search_contact_gl
 from dzvina_assist.functions.email_func import add_email_func, change_email_func
 from dzvina_assist.functions.note_func import add_note_func, change_notes_func, del_note_func, search_in_notes_func
 from dzvina_assist.functions.tags_func import add_tags_func, find_tags_func
+from dzvina_assist.functions.contact_info_func import contact_info_func
 from dzvina_assist.functions.interactive import start
 
 __all__ = ['start',

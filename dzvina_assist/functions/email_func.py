@@ -20,6 +20,6 @@ def change_email_func(data: str, book):
         return book, '\n<<< This user not in contact book.\n'
     contact = book[name]
     if not email:
-        email = input('Please enter new email: ')
+        email = input('Please enter new_book email: ')
     contact.add_email(email)
     return book, f'\n<<< Email: [{email}] has been changed to contact [{name}]\n'

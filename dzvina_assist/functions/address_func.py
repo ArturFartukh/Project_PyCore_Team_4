@@ -21,6 +21,6 @@ def change_address_func(data: str, book):
         return book, '\n<<< This user not in contact book.\n'
     contact = book[name]
     if not address:
-        address = input('Please enter new address: ')
+        address = input('Please enter new_book address: ')
     contact.add_address(address)
     return book, f'\n<<< Address: [{address}] has been changed to contact [{name}]/\n'

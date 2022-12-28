@@ -44,7 +44,7 @@ def change_phone_func(data: str, book):
     choice = input('Select a number to replace: ')
     if not choice.isdigit() or not 0 < int(choice) <= len(all_phones):
         return book, '<<< \033[31mWrong choice.\nAbolition...\033[0m\n'
-    new_phone = input('Enter a new number: ')
+    new_phone = input('Enter a new_book number: ')
     new_phone = phone_validator(new_phone)
     if not new_phone:
         return book, '<<< \033[31mInvalid number format.\nAbolition...\033[0m\n'

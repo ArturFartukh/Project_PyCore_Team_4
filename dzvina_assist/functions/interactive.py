@@ -1,10 +1,20 @@
+from dzvina_assist.Classes import Save
 from dzvina_assist.Classes import AddressBook
 from dzvina_assist.support_funcs import input_error
-from dzvina_assist.file_management import sorting_files, new, save, load
+from dzvina_assist.file_management import sorting_files, new_book_func, save_func, load_func
 from dzvina_assist.functions import *
 from fuzzywuzzy import process
+import pickle
 
 book = AddressBook()
+
+try:
+    with open(f'save.dat', 'rb') as fh:
+        save = pickle.load(fh)
+except FileNotFoundError:
+    with open(f'save.dat', 'wb') as fh:
+        save = Save()
+        pickle.dump(save, fh)
 
 
 def start():
@@ -22,6 +32,8 @@ def start():
         if input_command.lower() in STOP_LIST:
             if input('\033[32mDo you want to save the book? Y/N: \033[0m').upper() in ('Y', 'YES'):
                 save_book()
+            with open(f'save.dat', 'wb') as file:
+                pickle.dump(save, file)
             print('\033[32mGood bye!\033[0m')
             break
 
@@ -56,11 +68,11 @@ def unknown_command():
 
 def info_funk() -> str:
     return '\nMain commands:\n' \
-           'new book - create a new book\n' \
+           'new_book book - create a new_book book\n' \
            'load book - load the book\n' \
            'save book - save the book\n' \
            'organize files - [organize files Path] - Sorts the files in the specified directory\n' \
-           'add contact - [add Name 0123456789] - add new contact/contact and number\n' \
+           'add contact - [add Name 0123456789] - add new_book contact/contact and number\n' \
            'change phone - [change phone Name] - change contact number\n' \
            'del contact - [del Name 0123456789] - delete contact/contact number\n' \
            'add address - [add address Name Address] - add address to a contact\n' \
@@ -87,19 +99,27 @@ def hello_func():
 
 def new_book():
     global book
-    book, result = new(book)
-    return result
+    result = new_book_func()
+    if isinstance(result, str):
+        return result
+    book = result
+    return f'<<< \033[32mA new_book book [\033[1m{book.book_name}\033[0m\033[32m] has been created.\033[0m'
 
 
 def load_book():
+    # global save
     global book
-    book, result = load(book)
-    return result
+    result = load_func(save)
+    if isinstance(result, str):
+        return result
+    book = result
+    return f'<<< \033[32mThe book [\033[1m{book.book_name}\033[0m\033[32m] has been loaded.\033[0m\n'
 
 
 def save_book():
+    global save
     global book
-    book, result = save(book)
+    save, book, result = save_func(save, book)
     return result
 
 

@@ -10,6 +10,7 @@ setup(
     license='MIT',
     packages=find_namespace_packages(),
     entry_points={'console_scripts': ['dzvina=dzvina_assist.main:start']},
+    include_package_data=True,
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

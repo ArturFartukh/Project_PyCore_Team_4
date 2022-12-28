@@ -1,4 +1,4 @@
-from setuptools import setup, find_namespace_packages
+from setuptools import setup, find_packages
 
 setup(
     name='dzvina_assist',
@@ -8,7 +8,7 @@ setup(
     author='Go_IT Team-4',
     author_email='ar4ik.8933@gmail.com',
     license='MIT',
-    packages=find_namespace_packages(),
+    packages=find_packages(),
     entry_points={'console_scripts': ['dzvina=dzvina_assist.main:start']},
     include_package_data=True,
     classifiers=[

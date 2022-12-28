@@ -44,16 +44,19 @@ def command_parser(input_command: str):
     return func_call(command)()
 
 
+@input_error
 def func_call(command: str):
     """Calling a function depending on the entered command"""
 
     return OPERATIONS.get(command, unknown_command)
 
 
+@input_error
 def unknown_command():
     return 'Wrong input!'
 
 
+@input_error
 def info_funk() -> str:
     return '\nMain commands:\n' \
            'new book - create a new book\n' \
@@ -81,148 +84,173 @@ def info_funk() -> str:
            'all phones - show all numbers in the book\n'
 
 
+@input_error
 def hello_func():
     return '\nHello! My name is Dzvina.\nHow can I help you?\n'
 
 
+@input_error
 def new_book():
     global book
     book, result = new(book)
     return result
 
 
+@input_error
 def load_book():
     global book
     book, result = load(book)
     return result
 
 
+@input_error
 def save_book():
     global book
     book, result = save(book)
     return result
 
 
+@input_error
 def organize_files(path=''):
     if not path:
         path = input('Enter the directory path: ')
     return sorting_files(path)
 
 
+@input_error
 def add_contact(data: str) -> str:
     global book
     book, result = add_func(data, book)
     return result
 
 
+@input_error
 def change_phone(data: str) -> str:
     global book
     book, result = change_phone_func(data, book)
     return result
 
 
+@input_error
 def del_contact_or_number(data: str) -> str:
     global book
     book, result = del_func(data, book)
     return result
 
 
+@input_error
 def add_address(data: str) -> str:
     global book
     book, result = add_address_func(data, book)
     return result
 
 
+@input_error
 def change_address(data: str) -> str:
     global book
     book, result = change_address_func(data, book)
     return result
 
 
+@input_error
 def add_email(data: str) -> str:
     global book
     book, result = add_email_func(data, book)
     return result
 
 
+@input_error
 def change_email(data: str) -> str:
     global book
     book, result = change_email_func(data, book)
     return result
 
 
+@input_error
 def add_birthday(data: str) -> str:
     global book
     book, result = add_birthday_func(data, book)
     return result
 
 
+@input_error
 def when_birthday(data: str) -> str:
     global book
     result = days_before_birthday_func(data, book)
     return result
 
 
+@input_error
 def add_note(data: str) -> str:
     global book
     book, result = add_note_func(data, book)
     return result
 
 
+@input_error
 def change_note(data: str) -> str:
     global book
     book, result = change_notes_func(data, book)
     return result
 
 
+@input_error
 def del_note(data: str) -> str:
     global book
     book, result = del_note_func(data, book)
     return result
 
 
+@input_error
 def search_in_notes(data: str) -> str:
     global book
     result = search_in_notes_func(data, book)
     return result
 
 
+@input_error
 def add_tags(data: str) -> str:
     global book
     book, result = add_tags_func(data, book)
     return result
 
 
+@input_error
 def search_to_teg(data: str) -> str:
     global book
     result = find_tags_func(data, book)
     return result
 
 
+@input_error
 def search_contact(data: str) -> str:
     global book
     result = search_contact_func(data, book)
     return result
 
 
+@input_error
 def global_search(data: str) -> str:
     global book
     result = search_contact_global_func(data)
     return result
 
 
+@input_error
 def contact_info(name: str) -> str:
     global book
     result = contact_info_func(name, book)
     return result
 
 
+@input_error
 def all_contact_info() -> str:
     global book
     result = all_contact_info_func(book)
     return result
 
 
+@input_error
 def all_numbers() -> str:
     global book
     result = all_numbers_func(book)

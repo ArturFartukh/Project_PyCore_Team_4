@@ -3,6 +3,7 @@ from dzvina_assist.functions.all_contact_info_func import all_contact_info_func
 from dzvina_assist.functions.all_numbers_func import all_numbers_func
 from dzvina_assist.functions.birthday_func import add_birthday_func, days_before_birthday_func
 from dzvina_assist.functions.contact_func import add_func, change_phone_func, del_func
+from dzvina_assist.functions.contact_info_func import contact_info_func
 from dzvina_assist.functions.search_contact_func import search_contact_func
 from dzvina_assist.functions.search_contact_global_func import search_contact_global_func
 from dzvina_assist.functions.email_func import add_email_func, change_email_func

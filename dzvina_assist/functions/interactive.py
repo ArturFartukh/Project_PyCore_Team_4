@@ -82,7 +82,7 @@ def info_funk() -> str:
 
 
 def hello_func():
-    return '\nHello! How can I help you?\n'
+    return '\nHello! My name is Dzvina.\nHow can I help you?\n'
 
 
 def new_book():

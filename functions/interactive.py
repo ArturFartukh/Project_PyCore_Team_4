@@ -1,6 +1,7 @@
 from Classes import AddressBook
 from file_management import sorting_files, new, save, load
 from functions import *
+from fuzzywuzzy import process
 
 book = AddressBook()
 
@@ -27,14 +28,9 @@ def command_parser(input_command: str):
     new_input = input_command.split()
     new_input = [item.lower().strip() for item in new_input if item not in ('', ' ')]
     input_command = ' '.join(new_input)
-    data = ''
-    command = ''
-    for key in OPERATIONS:
-        if input_command.startswith(key):
-            command = key
-            data = input_command[len(command):]
-            data = data.strip()
-            break
+    command_fuzz = list(process.extractOne(input_command, OPERATIONS))
+    command = command_fuzz[2]
+    data = input_command[len(command):].strip()
     if data:
         return func_call(command)(data)
     return func_call(command)()

@@ -9,9 +9,15 @@ book = AddressBook()
 
 def start():
     """Main function"""
-    print('Start!\n')
-    print('To see the available commands, enter "\033[32m\033[1minfo\033[0m" bks of quotes.')
+    print('Start!')
+    print('~' * 57)
+    print('To see the available commands, enter "\033[32m\033[1minfo\033[0m" bks of quotes.\n')
     while True:
+        print('1 New book\n'
+              '2 Load book\n'
+              '3 Save book\n'
+              '4 All commands')
+        print('Make a choice or enter a command.')
         input_command = input('>>> ')
         if input_command.lower() in STOP_LIST:
             if input('\033[32mDo you want to save the book? Y/N: \033[0m').upper() in ('Y', 'YES'):
@@ -81,7 +87,7 @@ def hello_func():
 
 def new_book():
     global book
-    book, result = new()
+    book, result = new(book)
     return result
 
 
@@ -224,9 +230,10 @@ def all_numbers() -> str:
 
 
 OPERATIONS = {'info': info_funk,
-              'new book': new_book,
-              'load book': load_book,
-              'save book': save_book,
+              '1': new_book,
+              '2': load_book,
+              '3': save_book,
+              '4': info_funk,
               'organize files': organize_files,
               'hello': hello_func,
               'hi': hello_func,

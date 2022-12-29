@@ -41,7 +41,7 @@ def start():
         print(result)
 
 
-# @input_error
+@input_error
 def command_parser(input_command: str):
     """Processing the command entered by the user"""
 

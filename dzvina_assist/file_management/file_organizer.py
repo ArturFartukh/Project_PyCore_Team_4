@@ -20,7 +20,7 @@ def sorting_files(path) -> str:
 
     moving_files(home_path, paths_dict)
 
-    return '\nFile sorting is complete.\n'
+    return '\n<<< \033[33mFile sorting is complete.\033[0m\n'
 
 
 def direct_processing(work_path: Path, stem='**/*', suffix='.*') -> list:

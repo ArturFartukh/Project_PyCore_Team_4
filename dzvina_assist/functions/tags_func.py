@@ -1,20 +1,18 @@
-from dzvina_assist.support_funcs import split_data
+def add_tags_func(book):
 
-
-def add_tags_func(data: str, book):
-    name, tags = split_data(data)
+    name = input('Please enter name: ')
+    name = name.strip().title()
     splitter = ''
     if name not in book.data:
         return book, '\n<<< This name not in contact book\n'
     contact = book[name]
     if contact.notes:
-        print('\n<<< Which note do you want to tag?\n')
+        print('\nWhich note do you want to tag?\n')
         for count, note in enumerate(contact.notes, 1):
             print(count, note)
         user_input = input('Choice note: ')
         if user_input.isnumeric() and int(user_input) <= len(contact.notes):
-            if not tags:
-                tags = input('Please write your tags: ')
+            tags = input('Please write your tags: ')
             for i in tags:
                 if not i.isalnum():
                     splitter = i
@@ -24,7 +22,7 @@ def add_tags_func(data: str, book):
                 tags = tags.split(splitter)
                 tags = [tag.strip().lower() for tag in tags]
             except ValueError:
-                pass
+                tags = [tags]
             contact.add_tags(user_input, tags)
         else:
             return book, '<<< Invalid choice.'
@@ -34,7 +32,8 @@ def add_tags_func(data: str, book):
     return book, f'\n<<< Your tags: [{tags}] saved.\n'
 
 
-def find_tags_func(tag: str, book):
+def find_tags_func(book):
+    tag = input('Please enter tag: ')
     tag = tag.strip().lower()
     result = []
     result_str = '<<< Nothing found...'

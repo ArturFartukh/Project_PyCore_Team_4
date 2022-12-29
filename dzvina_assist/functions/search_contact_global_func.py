@@ -1,12 +1,13 @@
 from dzvina_assist.support_funcs import phone_validator
-import pickle
 
 
-def search_contact_global_func(save, data: str):
+def search_contact_global_func(save):
     name = None
     phone = None
     result = []
     result_str = '<<< Nothing found...\n'
+    data = input('Please enter name or phone: ')
+    data = data.strip()
     if data[0].isalpha():
         name = data.strip().title()
     elif data[0].isdigit() or data[0] == '+':

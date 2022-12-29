@@ -50,9 +50,6 @@ def command_parser(input_command: str):
     input_command = ' '.join(new_input)
     command_fuzz = list(process.extractOne(input_command, OPERATIONS.keys()))
     command = command_fuzz[0]
-    data = input_command[len(command):].strip()
-    if data:
-        return func_call(command)(data)
     return func_call(command)()
 
 
@@ -71,23 +68,23 @@ def info_funk() -> str:
            'new_book book - create a new_book book\n' \
            'load book - load the book\n' \
            'save book - save the book\n' \
-           'organize files - [organize files Path] - Sorts the files in the specified directory\n' \
-           'add contact - [add Name 0123456789] - add new_book contact/contact and number\n' \
-           'change phone - [change phone Name] - change contact number\n' \
-           'del contact - [del Name 0123456789] - delete contact/contact number\n' \
-           'add address - [add address Name Address] - add address to a contact\n' \
-           'change address - [change address Name] - change contact address\n' \
-           'add email - [add email Name E-mail] - add e-mail to a contact\n' \
-           'change email - [change email Name E-mail] - change e-mail in contact\n' \
-           'add birthday - [add birthday Name dd.mm.yyyy] - add birthday to а contact\n' \
-           'when birthday - [when birthday Name] - remaining days until the birthday\n' \
-           'add note - [add note Note] - add note to а contact\n' \
-           'find note - [find note Name string] - find note in contact\n' \
-           'add tags - [add tags Name] - add tags to а contact\n' \
-           'tag - [tag Str] - find to tag\n' \
-           'find tag - [find tag Tag] - searches for a note by tag\n' \
-           'gfind - [gfind Name/Number] - find a contact by name/number in all saved books\n' \
-           'about contact - [about contact Name] - all contact information\n' \
+           'organize files - Sorts the files in the specified directory\n' \
+           'add contact - add new_book contact/contact and number\n' \
+           'change phone - change contact number\n' \
+           'del contact - delete contact/contact number\n' \
+           'add address - add address to a contact\n' \
+           'change address - change contact address\n' \
+           'add email - add e-mail to a contact\n' \
+           'change email - change e-mail in contact\n' \
+           'add birthday - add birthday to а contact\n' \
+           'when birthday - remaining days until the birthday\n' \
+           'add note - add note to а contact\n' \
+           'change note - change note in а contact\n' \
+           'find note - find note in contact\n' \
+           'add tags - add tags to а contact\n' \
+           'tag find - find to tag\n' \
+           'gfind - find a contact by name/number in all saved books\n' \
+           'about contact - contact information\n' \
            'about all - all information about all contacts\n' \
            'all phones - show all numbers in the book\n'
 
@@ -98,7 +95,7 @@ def hello_func():
 
 def new_book():
     global book
-    result = new_book_func()
+    result = new_book_func(save, book)
     if isinstance(result, str):
         return result
     book = result
@@ -106,7 +103,6 @@ def new_book():
 
 
 def load_book():
-    # global save
     global book
     result = load_func(save)
     if isinstance(result, str):
@@ -122,111 +118,110 @@ def save_book():
     return result
 
 
-def organize_files(path=''):
-    if not path:
-        path = input('Enter the directory path: ')
+def organize_files():
+    path = input('Enter the directory path: ')
     return sorting_files(path)
 
 
-def add_contact(data: str) -> str:
+def add_contact() -> str:
     global book
-    book, result = add_func(data, book)
+    book, result = add_func(book)
     return result
 
 
-def change_phone(data: str) -> str:
+def change_phone() -> str:
     global book
-    book, result = change_phone_func(data, book)
+    book, result = change_phone_func(book)
     return result
 
 
-def del_contact_or_number(data: str) -> str:
+def del_contact_or_number() -> str:
     global book
-    book, result = del_func(data, book)
+    book, result = del_func(book)
     return result
 
 
-def add_address(data: str) -> str:
+def add_address() -> str:
     global book
-    book, result = add_address_func(data, book)
+    book, result = add_address_func(book)
     return result
 
 
-def change_address(data: str) -> str:
+def change_address() -> str:
     global book
-    book, result = change_address_func(data, book)
+    book, result = change_address_func(book)
     return result
 
 
-def add_email(data: str) -> str:
+def add_email() -> str:
     global book
-    book, result = add_email_func(data, book)
+    book, result = add_email_func(book)
     return result
 
 
-def change_email(data: str) -> str:
+def change_email() -> str:
     global book
-    book, result = change_email_func(data, book)
+    book, result = change_email_func(book)
     return result
 
 
-def add_birthday(data: str) -> str:
+def add_birthday() -> str:
     global book
-    book, result = add_birthday_func(data, book)
+    book, result = add_birthday_func(book)
     return result
 
 
-def when_birthday(data: str) -> str:
+def when_birthday() -> str:
     global book
-    result = days_before_birthday_func(data, book)
+    result = days_before_birthday_func(book)
     return result
 
 
-def add_note(data: str) -> str:
+def add_note() -> str:
     global book
-    book, result = add_note_func(data, book)
+    book, result = add_note_func(book)
     return result
 
 
-def change_note(data: str) -> str:
+def change_note() -> str:
     global book
-    book, result = change_notes_func(data, book)
+    book, result = change_notes_func(book)
     return result
 
 
-def del_note(data: str) -> str:
+def del_note() -> str:
     global book
-    book, result = del_note_func(data, book)
+    book, result = del_note_func(book)
     return result
 
 
-def search_in_notes(data: str) -> str:
+def search_in_notes() -> str:
     global book
-    result = search_in_notes_func(data, book)
+    result = search_in_notes_func(book)
     return result
 
 
-def add_tags(data: str) -> str:
+def add_tags() -> str:
     global book
-    book, result = add_tags_func(data, book)
+    book, result = add_tags_func(book)
     return result
 
 
-def search_to_teg(data: str) -> str:
+def search_to_teg() -> str:
     global book
-    result = find_tags_func(data, book)
+    result = find_tags_func(book)
     return result
 
 
-def global_search(data: str) -> str:
+def global_search() -> str:
     global book
-    result = search_contact_global_func(save, data)
+    result = search_contact_global_func(save)
     return result
 
 
-def contact_info(name: str) -> str:
+def contact_info() -> str:
     global book
-    result = contact_info_func(name, book)
+    result = contact_info_func(book)
     return result
 
 
@@ -264,7 +259,7 @@ OPERATIONS = {'info': info_funk,
               'del note': del_note,
               'find note': search_in_notes,
               'add tags': add_tags,
-              'tag': search_to_teg,  # !!!
+              'tag find': search_to_teg,  # !!!
               'gfind': global_search,
               'about contact': contact_info,
               'about all': all_contact_info,

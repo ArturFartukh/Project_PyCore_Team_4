@@ -1,13 +1,11 @@
-from dzvina_assist.support_funcs import split_data
+def add_birthday_func(book):
 
-
-def add_birthday_func(data: str, book):
-
-    name, birth_date = split_data(data)
-
+    name = input('Please enter name: ')
+    name = name.strip().title()
     if name not in book.data:
         return book, '<<< This user not in contact book'
-
+    birth_date = input('Enter date of birth: ')
+    birth_date = birth_date.strip()
     contact = book.data[name]
     data = ''
     for i in birth_date:
@@ -27,14 +25,15 @@ def add_birthday_func(data: str, book):
     return book, f'\n<<< Birthday has been added [{name}]:[{contact.birthday}]\n'
 
 
-def days_before_birthday_func(data: str, book):
+def days_before_birthday_func(book):
 
-    name = data.strip().title()
-
-    if name not in book:
-        return '<<< No such contact found!'
+    name = input('Please enter name: ')
+    name = name.strip().title()
+    if name not in book.data:
+        return book, '<<< This user not in contact book'
 
     record = book[name]
     result = record.next_birthday()
+    result = f"<<< {book.book_name}'s birthday, after {result}\n"
 
     return result

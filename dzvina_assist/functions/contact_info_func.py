@@ -1,13 +1,15 @@
 from dzvina_assist.support_funcs import phone_validator
 
 
-def contact_info_func(data: str, book):
+def contact_info_func(book):
     name = None
     phone = None
     contact = None
 
+    data = input('Please enter name or phone: ')
+    data = data.strip()
     if data[0].isalpha():
-        name = data.strip().title()
+        name = data.title()
     elif data[0].isdigit() or (data[0] == '+' and data[1:].isdigit()):
         phone = phone_validator(data)
 
@@ -59,7 +61,7 @@ def all_contact_info_func(book):
                 if key == 'phones':
                     result += f'{key.title()}: '
                     for count, value in enumerate(contact_info[key], 1):
-                        if count in (4, 7, 10):
+                        if count in (4, 7, 10, 13, 16):
                             result += f'\n{" " * 8}'
                         result += f'{value}, '
                     result += '\b\b\n'

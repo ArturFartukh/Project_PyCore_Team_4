@@ -86,7 +86,6 @@ def info_funk() -> str:
            'add tags - [add tags Name] - add tags to а contact\n' \
            'tag - [tag Str] - find to tag\n' \
            'find tag - [find tag Tag] - searches for a note by tag\n' \
-           'find - [find Name/Number] - search for a contact by name/number\n' \
            'gfind - [gfind Name/Number] - find a contact by name/number in all saved books\n' \
            'about contact - [about contact Name] - all contact information\n' \
            'about all - all information about all contacts\n' \
@@ -219,15 +218,9 @@ def search_to_teg(data: str) -> str:
     return result
 
 
-def search_contact(data: str) -> str:
-    global book
-    result = search_contact_func(data, book)
-    return result
-
-
 def global_search(data: str) -> str:
     global book
-    result = search_contact_global_func(data)
+    result = search_contact_global_func(save, data)
     return result
 
 
@@ -272,7 +265,6 @@ OPERATIONS = {'info': info_funk,
               'find note': search_in_notes,
               'add tags': add_tags,
               'tag': search_to_teg,  # !!!
-              'find': search_contact,
               'gfind': global_search,
               'about contact': contact_info,
               'about all': all_contact_info,

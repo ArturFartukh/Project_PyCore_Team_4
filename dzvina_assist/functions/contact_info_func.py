@@ -42,7 +42,7 @@ def contact_info_func(book):
                 for count, note in enumerate(contact_info[key], 1):
                     result += f'{count}. [{note}]\n'
         else:
-            result += f'{key.title()}: {contact_info[key]}) (after: {contact.next_birthday()})\n'
+            result += f'{key.title()}: {contact_info[key]} (after: {contact.next_birthday()})\n'
     return result
 
 
